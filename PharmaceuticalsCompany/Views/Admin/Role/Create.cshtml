@@ -1,0 +1,46 @@
+﻿@model PharmaceuticalsCompany.Models.Role.CreateRoleViewModel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h4>CreateRoleViewModel</h4>
+<hr />
+<div class="container-fluid">
+    @if (ViewBag.RoleExist != null)
+    {
+        <div class="p-3 mb-2 bg-danger text-white  " style="text-align:center">@ViewBag.RoleExist</div>
+    }
+    <div class="row">
+        <div class="offset-md-3 col-md-6">
+            <!-- general form elements -->
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Create Role</h3>
+                </div>
+                <form asp-action="CreateRole" asp-controller="Role" method="post">
+                    <div class="card-body">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+                        <div class="form-group">
+                            <label asp-for="RoleName" class="control-label"></label>
+                            <input asp-for="RoleName" class="form-control" />
+                            <span asp-validation-for="RoleName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Create" class="btn  btn-primary" style="float:right" />
+                            <div class="clearfix" />
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
