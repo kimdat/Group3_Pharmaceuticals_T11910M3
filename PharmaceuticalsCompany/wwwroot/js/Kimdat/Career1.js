@@ -61,11 +61,13 @@ $(".booking-form input").change(function () {
         var d2 = new Date();
 
         d1 = ($(this).val());
-
-        var EndDate = $(this).parent().parent().parent().find(".EndDate");
+   
+        var EndDate = $(this).parent().parent().parent().find(".chooseEnd");
         d2 = EndDate.val();
-
+     
+       
         if (d1 < d2 && d2 != "") {
+        
             EndDate.parent().find(".error").html("");
         }
 
@@ -242,14 +244,18 @@ function readURL(input) {
 $("input[name='fileUser']").change(function () {
     // alert($(this).data('val'));
 
-
+    $('#blah').removeClass("hidden");
     var val = $(this).val().toLowerCase(),
         regex = new RegExp("(.*?)\.(jpg|png|jpeg|jpe|jfit)$");
 
     if (!(regex.test(val))) {
-        $(this).val('');
-        $(".modalValid").click();
-        $("#ModalValid .modal-body p").html("Please select corret file image(*.jpg,*.jpeg,*.jpe,*.jfit,*.png");
+        $('#blah').addClass("hidden");
+     
+        if (val != "") {
+            $(".modalValid").click();
+            $("#ModalValid .modal-body p").html("Please select corret file image(*.jpg,*.jpeg,*.jpe,*.jfit,*.png");
+
+        }
 
 
     }
@@ -259,20 +265,41 @@ $("input[name='fileUser']").change(function () {
     }
 
 });
+
+
 $("input[name='file']").change(function () {
+
+   
     var val = $(this).val().toLowerCase(),
         regex = new RegExp("(.*?)\.(docx|doc|docm|docx|dot|dotx|ppt|pptm|pptx|xlm|xls|xlsm|xlsx|pdf)$");
+    var oldValue = $(this).data('oldVal');
+    
+   // alert(oldValue);
+  //  alert($(this).data('oldVal'));
 
     if (!(regex.test(val))) {
-        $(this).val('');
-        $(".modalValid").click();
-        $("#ModalValid .modal-body p").html("Please select file word,excel,pdf or power point");
+        $('.filename').html('');
+        if (val != "") {
+            $(".modalValid").click();
+            $("#ModalValid .modal-body p").html("Please select file word,excel,pdf or power point");
+        }
+        
+      
+    }
+    else if (regex.test(val))
+    {
+        fileName = $(this)[0].files[0].name;
+
+        $('.filename').html(fileName);
+        $('.dropzone .upload').hide();
+        var $this = $(this);
+       
+        var newValue = $this.data('oldVal', $this.val());
 
     }
-    fileName = $(this)[0].files[0].name;
-
-    $('.filename').html(fileName);
-    $('.dropzone .upload').hide();
+   
+      
+  
 });
 
 function startUpload() {
@@ -694,8 +721,10 @@ $(document).ready(function () {
         b.val($(this).val());
     });
     $('.chooseJoin').change(function () {
+       
 
         var b = $(this).parent().find(".JoinDate");
+
         b.val($(this).val());
     });
     $('.remove').click(function () {

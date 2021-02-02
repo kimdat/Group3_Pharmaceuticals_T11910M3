@@ -196,7 +196,7 @@ $(document).ready(function () {
                 processData: false,
                 contentType: false,
                 error: function (xhr) {
-                    alert("loi roi");
+                    location.reload();
                 },
                 success: function (result) {
 
@@ -280,7 +280,7 @@ $(document).ready(function () {
                 beforeSend: function () { $('.wait').show(); },
                 complete: function () { $('.wait').hide(); },
                 error: function (xhr) {
-                    alert("loi roi");
+                    location
                 },
                 success: function (result) {
                     if (!result.success) {
