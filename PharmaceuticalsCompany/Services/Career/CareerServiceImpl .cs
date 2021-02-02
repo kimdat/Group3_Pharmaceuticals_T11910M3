@@ -52,6 +52,7 @@ namespace PharmaceuticalsCompany.Services.Career
 
         public async Task<CareerModel> Login(CareerModel career)
         {
+          
                 var result = await _sm.PasswordSignInAsync(career.Email, career.PassWord, false, false);
 
                 if (result.Succeeded)
@@ -62,6 +63,8 @@ namespace PharmaceuticalsCompany.Services.Career
                 {
                     return null;
                 }
+           
+            
         }
 
         public async Task<CareerModel> Logout()
@@ -254,7 +257,7 @@ namespace PharmaceuticalsCompany.Services.Career
                 else if (user.EmailConfirmed)
                     return "user";
                 else
-                    return "noconfirm";
+                    return null;
             }
            
          

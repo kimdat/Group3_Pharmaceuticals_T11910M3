@@ -270,10 +270,9 @@ $(document).ready(function () {
                 success: function (result) {
                     if (!result.success) {
                         $(".modalValid").click();
-                        if (result.role)
-                            $("#ModalValid .modal-body p").html("your account haven't vertify");
-                        else
-                            $("#ModalValid .modal-body p").html("invalid account");
+                        
+                        $("#ModalValid .modal-body p").html("invalid account Or your account hasn't been vertify");
+
 
 
 

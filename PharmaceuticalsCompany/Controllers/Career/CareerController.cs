@@ -100,7 +100,7 @@ namespace PharmaceuticalsCompany.Controllers.Candidate
                 return Json(new
                 {
                     success = false,
-
+                   
                 });
             }
              else
@@ -116,7 +116,7 @@ namespace PharmaceuticalsCompany.Controllers.Candidate
                             role = "admin"
                         });
                     }
-                    else if (check == "user")
+                    else 
                     {
                         return Json(new
                         {
@@ -124,17 +124,9 @@ namespace PharmaceuticalsCompany.Controllers.Candidate
                             role = "user"
                         });
                     }
-                    else
-                    {
-                        return Json(new
-                        {
-                            success = false,
-                            role = "no"
-
-                        });
-                    }
+                 
                 }
-               else
+                else
                 {
                     return Json(new
                     {
@@ -142,11 +134,8 @@ namespace PharmaceuticalsCompany.Controllers.Candidate
 
                     });
                 }
-
-                
-
                
-            }
+             }
            
         }
         public IActionResult Register()
