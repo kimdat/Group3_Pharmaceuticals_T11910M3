@@ -54,7 +54,63 @@ $dropzone.on('drag dragstart dragend dragover dragenter dragleave drop', functio
         $('.filename').html(fileName);
         $('.dropzone .upload').hide();
     });
+$(".booking-form input").change(function () {
 
+    if ($(this).attr("name").split(".")[1] == "chooseJoin") {
+        var d1 = new Date();
+        var d2 = new Date();
+
+        d1 = ($(this).val());
+
+        var EndDate = $(this).parent().parent().parent().find(".EndDate");
+        d2 = EndDate.val();
+
+        if (d1 < d2 && d2 != "") {
+            EndDate.parent().find(".error").html("");
+        }
+
+
+    }
+
+
+ 
+
+
+})
+$(".booking-form input").focus(function () {
+
+   $(this).parent().find(".error").html("");
+   
+  
+})
+$(".booking-form input").keydown(function () {
+
+    
+    $(this).parent().find(".error").html("");
+
+
+})
+$('input[type=date]').each(function () {
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1; //January is 0!
+    var yyyy = today.getFullYear();
+    if (dd < 10) {
+        dd = '0' + dd
+    }
+    if (mm < 10) {
+        mm = '0' + mm
+    }
+
+    today = yyyy + '-' + mm + '-' + dd;
+    $(this).attr("min", "1971-01-01");
+    $(this).attr("max", today);
+})
+$(' input[type=date]').keydown(function (e)
+{
+   
+    e.preventDefault();
+})
 function Validation() {
 
 
@@ -232,6 +288,21 @@ function startUpload() {
 }
 
 function mychangeJoin() {
+   
+        var d1 = new Date();
+        var d2 = new Date();
+
+        d1 = ($(this).val());
+  
+        var EndDate = $(this).parent().parent().parent().find(".EndDate");
+        d2 = EndDate.val();
+
+        if (d1 < d2 && d2 != "") {
+            EndDate.parent().find(".error").html("");
+        }
+
+
+
     var a = $(this).parent().find(".JoinDate");
     var b = $(this).val();
     b = b.split(" ")[0];
@@ -275,6 +346,24 @@ function showDone() {
     $button.html('Done');
 }
 function onfocuKeydown() {
+    $(' input[type=date]').keydown(function (e) {
+
+        e.preventDefault();
+    })
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1; //January is 0!
+    var yyyy = today.getFullYear();
+    if (dd < 10) {
+        dd = '0' + dd
+    }
+    if (mm < 10) {
+        mm = '0' + mm
+    }
+
+    today = yyyy + '-' + mm + '-' + dd;
+    $(this).attr("min","1971-01-01");
+    $(this).attr("max", today);
     $(this).parent().find(".error").html("");
 
 

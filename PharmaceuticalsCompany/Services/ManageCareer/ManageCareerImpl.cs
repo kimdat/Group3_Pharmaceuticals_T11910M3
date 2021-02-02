@@ -30,11 +30,28 @@ namespace PharmaceuticalsCompany.Services.ManageCareer
             var listUser = new List<ApplicationUser>();
             foreach (var item in context.UserRoles)
             {
+                var user = context.Careers.Find(item.UserId);
                 if (item.RoleId != role.Id)
                 {
-                    var user = context.Careers.Find(item.UserId);
-                    listUser.Add(user);
+                  
+                    if(!listUser.Contains(user))
+                    {
+
+                        listUser.Add(user);
+                    }
                 }
+               
+
+            }
+            foreach (var item in context.UserRoles)
+            {
+                var user = context.Careers.Find(item.UserId);
+                if (item.RoleId == role.Id)
+                {
+
+                    listUser.Remove(user);
+                }
+               
 
             }
             return listUser;

@@ -93,7 +93,6 @@ namespace PharmaceuticalsCompany.Controllers.Candidate
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(CareerModel candidate)
         {
-
             var check = services.CheckIsAdminAndVerity(candidate.Email).Result;
             if (check == null)
             {

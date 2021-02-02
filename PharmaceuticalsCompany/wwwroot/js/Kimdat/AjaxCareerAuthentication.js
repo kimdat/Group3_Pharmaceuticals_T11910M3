@@ -28,7 +28,6 @@ $(document).ready(function () {
 
     $("#register").submit(function (e) {
      
-        $('.wait').show();
 
         var flagResume = true;
         var flagPersonal = true;
@@ -43,12 +42,58 @@ $(document).ready(function () {
             $('input[name = "Phone"]').parent().find(".error").html(" Valid PHONE Is required: (123)456789,(123).456.7899,(123)-456-7899,123-456-7899,123 456 7899,1234567899");
             flagPersonal = false;
         }
-    
-        if ($('.register input[name="Email"]').val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null)  {
+        if ($('.register input[name="Email"]').val().trim() == "") {
+            $('.register input[name = "Email"]').parent().find(".error").html("Email is required");
+            flagPersonal = false;
+        }
+        else if ($('.register input[name="Email"]').val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null)  {
             $('.register input[name = "Email"]').parent().find(".error").html(" Valid email is required: ex@abc.xyz");
             flagPersonal = false;
         }
-        
+        var pass = $('#register input[name="PassWord"]').val().trim();
+        var confirm = $('#register input[name="ConfirmPassWord"]').val().trim();
+        if (pass== "") {
+            $('#register input[name="PassWord"]').parent().find(".error").html( "pass word is required");
+        }
+        if (confirm == "") {
+            $('#register input[name="ConfirmPassWord"]').parent().find(".error").html("Confirmpassword is required");
+        }
+        if (pass != confirm) {
+            $('#register input[name="PassWord"]').parent().find(".error").html("pass word and confirmpassword must be match");
+        }
+      
+        var phone = $('#register input[name="Phone"]').val().trim();
+        if (phone == "") {
+            $('#register input[name="Phone"]').parent().find(".error").html("phone is required");
+            flagPersonal = false;
+        }
+        var add = $('#register input[name="Address"]').val().trim();
+        if (add =="") {
+            $('#register input[name="Address"]').parent().find(".error").html("Address is required");
+            flagPersonal = false;
+        }
+        var dob = $('#register input[name="DateOfBirth"]').val().trim();
+        if (dob == "") {
+             $('#register input[name="DateOfBirth"]').parent().find(".error").html("please choose date of birth");
+               flagPersonal = false;
+          }
+       
+        var fullName = $('#register input[name="FullName"]').val().trim();
+        if (fullName != "") {
+            if (fullName.length < 6 || fullName.length > 50) {
+
+                $('#register input[name="FullName"]').parent().find(".error").html("full name must be from 6 to 50 character");
+                flagPersonal = false;
+
+
+            }
+        }
+        else {
+            $('#register input[name="FullName"]').parent().find(".error").html("name is required");
+            flagPersonal = false;
+        }
+            
+       
         $(".name_school").each(function () {
 
 
@@ -80,7 +125,29 @@ $(document).ready(function () {
                 flagEducation = false;
             }
         });
+        $(".EndDate").each(function () {
 
+
+            if ($(this).val().trim() == "") {
+
+
+                $(this).parent().find(".error").html("Please choose End Date");
+
+                flagEducation = false;
+            }
+        });
+
+        $(".JoinDate").each(function () {
+
+
+            if ($(this).val().trim() == "") {
+
+
+                $(this).parent().find(".error").html("Please choose Join Date");
+
+                flagEducation = false;
+            }
+        });
         if ($('input[name="file"]').val() == "") {
             $(".errorResume").html(" please choose your resume");
             flagResume = false;
@@ -99,84 +166,93 @@ $(document).ready(function () {
 
 
         });
+        var error = "";
+        if (flagPersonal == false)
+            error += " please fill valid personal detail </br>"
+        if (flagEducation == false)
+            error += " please fill valid education detail </br>"
+        if (flagResume == false)
+            error += "pls upload your resume </br>"
+        if (error != "") {
+            $(".modalValid").click();
+            $("#ModalValid .modal-body p").html(error);
+        }
+        
         e.preventDefault();
+       
+        if (flagPersonal == true && flagEducation == true && flagResume == true) {
+            $.ajax({
 
-        $.ajax({
+
+                method: 'post',
+                url: this.action,
+                beforeSend: function () {
+                    $('.wait').show();
+                },
+              
+                complete: function () { $('.wait').hide(); },
+
+                data: new FormData(this),
+                processData: false,
+                contentType: false,
+                error: function (xhr) {
+                    alert("loi roi");
+                },
+                success: function (result) {
+
+                    if (!result.success) {
+                      
+                        var errorPass = "";
+                        for (i = 0; i < result.errors.length; i++) {
+
+                            var name = result.errors[i].key;
+                            if (name.split(".")[1] != "JoinDate" && name.split(".")[1] != "EndDate") {
+                                flagPersonal = false;
+
+                                $(".register input[name='" + name + "']").parent().find(".error").html(result.errors[i].errors[0]);
+                                if (name == "EmailExist")
+                                    $(".register input[name='Email']").parent().find(".error").html("Email is exist");
+                             
+                                if (name.indexOf("Password") !== -1) {
+                                    errorPass += result.errors[i].errors[0] + "<br/>";
+                                    $(".register input[name='PassWord']").parent().find(".error").html(errorPass);
+                                }
+                                
 
 
-            method: 'post',
-            url: this.action,
 
-            complete: function () { $('.wait').hide(); },
-
-            data: new FormData(this),
-            processData: false,
-            contentType: false,
-            error: function (xhr) {
-                alert("loi roi");
-            },
-            success: function (result) {
-
-                if (!result.success) {
-
-                    var errorPass = "";
-                    for (i = 0; i < result.errors.length; i++) {
-
-                        var name = result.errors[i].key;
-                        if (name.split(".")[1] != "JoinDate" && name.split(".")[1] != "EndDate") {
-                            flagPersonal = false;
-
-                            $(".register input[name='" + name + "']").parent().find(".error").html(result.errors[i].errors[0]);
-                            if (name == "EmailExist")
-                                $(".register input[name='Email']").parent().find(".error").html("Email is exist");
-                            if (name == "DateOfBirth")
-                                $("input[name='" + name + "']").parent().find(".error").html(" please choose your birthday");
-                            if (name.indexOf("Password") !== -1) {
-                                errorPass += result.errors[i].errors[0] + "<br/>";
-                                $(".register input[name='PassWord']").parent().find(".error").html(errorPass);
                             }
-                            if ($("input[name='Password']").val() == "" && $("input[name='ConfirmPassWord']") != "") {
-                                $("input[name='ConfirmPassWord']").parent().find(".error").html("");
-                            }
-
-
-
+                          
+                            console.log(result.errors[i].key);
+                            console.log(result.errors[i].errors[0]);
                         }
-                        else {
-                            flagEducation = false;
-                            $("input[name='" + name + "']").parent().find(".error").html("please choose " + name.split(".")[1]);
-                        }
-                        console.log(result.errors[i].key);
-                        console.log(result.errors[i].errors[0]);
+
+                        var error = "";
+                        if (flagPersonal == false)
+                            error += " please fill valid personal detail </br>"
+                        if (flagEducation == false)
+                            error += " please fill valid education detail </br>"
+                        if (flagResume == false)
+                            error += "pls upload your resume </br>"
+                        $(".modalValid").click();
+                        $("#ModalValid .modal-body p").html(error);
+
                     }
 
-                    var error = "";
-                    if (flagPersonal == false)
-                        error += " please fill valid personal detail </br>"
-                    if (flagEducation == false)
-                        error += " please fill valid education detail </br>"
-                    if (flagResume == false)
-                        error += "pls upload your resume </br>"
-                    $(".modalValid").click();
-                    $("#ModalValid .modal-body p").html(error);
+                    else {
+                        $(".modalValid").click();
+                        $("#ModalValid .modal-body p").html(" Your account have been created, we have sent one email for you to vertiy, please vertify it before you want to watch and edit your profile.");
+                    }
 
+                    // location.reload();
+                    //var a=data.status;
+                    //alert(a);
+                    //  document.getElementById("total").innerHTML = 123;
                 }
 
-                else {
-
-
-
-                    $(".modalValid").click();
-                    $("#ModalValid .modal-body p").html(" Your account have been created, we have sent one email for you to vertiy, please vertify it before you want to watch and edit your profile.");
-                }
-
-                // location.reload();
-                //var a=data.status;
-                //alert(a);
-                //  document.getElementById("total").innerHTML = 123;
-            }
-
-        });
+            });
+        }
+       
 
 
     });
@@ -265,7 +341,7 @@ $(document).ready(function () {
                 beforeSend: function () { $('.wait').show(); },
                 complete: function () { $('.wait').hide(); },
                 error: function (xhr) {
-
+                    location.reload();
                 },
                 success: function (result) {
                     if (!result.success) {
