@@ -278,11 +278,11 @@ $("input[name='file']").change(function () {
   //  alert($(this).data('oldVal'));
 
     if (!(regex.test(val))) {
-
+     
         $(this).val('');
             $(".modalValid").click();
             $("#ModalValid .modal-body p").html("Please select file word,excel,pdf or power point");
-        //$('.filename').html('');
+       $('.filename').html('');
         
       
     }
