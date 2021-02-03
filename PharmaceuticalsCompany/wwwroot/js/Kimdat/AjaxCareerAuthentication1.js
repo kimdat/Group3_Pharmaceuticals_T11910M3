@@ -53,13 +53,16 @@ $(document).ready(function () {
         var pass = $('#register input[name="PassWord"]').val().trim();
         var confirm = $('#register input[name="ConfirmPassWord"]').val().trim();
         if (pass== "") {
-            $('#register input[name="PassWord"]').parent().find(".error").html( "pass word is required");
+            $('#register input[name="PassWord"]').parent().find(".error").html("pass word is required");
+            flagPersonal = false;
         }
         if (confirm == "") {
             $('#register input[name="ConfirmPassWord"]').parent().find(".error").html("Confirmpassword is required");
+            flagPersonal = false;
         }
         if (pass != confirm) {
-            $('#register input[name="PassWord"]').parent().find(".error").html("pass word and confirmpassword must be match");
+            $('#register input[name="ConfirmPassWord"]').parent().find(".error").html("pass word and confirmpassword must be match");
+            flagPersonal = false;
         }
       
         var phone = $('#register input[name="Phone"]').val().trim();
