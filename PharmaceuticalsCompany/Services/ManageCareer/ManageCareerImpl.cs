@@ -28,18 +28,14 @@ namespace PharmaceuticalsCompany.Services.ManageCareer
 
             var role = context.Roles.SingleOrDefault(m => m.Name == "Admin");
             var listUser = new List<ApplicationUser>();
-            foreach (var item in context.UserRoles)
+            foreach (var item in context.Careers)
             {
-                var user = context.Careers.Find(item.UserId);
-                if (item.RoleId != role.Id)
-                {
+                var user = context.Careers.Find(item.Id);
+              
                   
-                    if(!listUser.Contains(user))
-                    {
 
                         listUser.Add(user);
-                    }
-                }
+                   
                
 
             }
@@ -49,7 +45,7 @@ namespace PharmaceuticalsCompany.Services.ManageCareer
                 if (item.RoleId == role.Id)
                 {
 
-                    listUser.Remove(user);
+                   listUser.Remove(user);
                 }
                
 

@@ -13,7 +13,9 @@
 
 </script>
 <hr />
-
+@{
+   var count = 1;
+} 
 <div class="container-fluid">
     @if (ViewBag.EditUserInRole != null)
     {
@@ -73,8 +75,11 @@
 
                             @if (Model.ListUsers != null)
                             {
+
                                 foreach (var user in Model.ListUsers)
                                 {
+                                    <label> @(count++)</label>
+                                   
                                     @user <br />
                                 }
                                 <br />
@@ -126,7 +131,7 @@
 
                     <div class="card-header">
                         <div class="">
-                            <label for="">Add Or Remove in role @Model.RoleName</label>
+                            <label for="">Add Or Remove User in role @Model.RoleName</label>
                             <input type="hidden" name="id" value="@Model.Id">
                         </div>
 
@@ -137,6 +142,7 @@
                         {
                             <input type="hidden" name="[@i].UserId" value="@ViewBag.UserInRole[i].UserId" />
                             <div>
+                                <label>@(i + 1)</label>
                                 @if (ViewBag.UserInRole[i].IsSelected == "true")
                                 {
 

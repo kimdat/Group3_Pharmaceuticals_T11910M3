@@ -7,6 +7,7 @@ using PharmaceuticalsCompany.Models.Career;
 using PharmaceuticalsCompany.Models.Role;
 
 using Microsoft.EntityFrameworkCore;
+using PharmaceuticalsCompany.Data;
 
 namespace PharmaceuticalsCompany.Services.ManageRole
 {
@@ -14,11 +15,14 @@ namespace PharmaceuticalsCompany.Services.ManageRole
     {
         private readonly RoleManager<IdentityRole> roleManager;
         private readonly UserManager<ApplicationUser> userManager;
-        public ManageRoleImpl(RoleManager<IdentityRole> roleManager, UserManager<ApplicationUser> userManager)
+        private ApplicationDbContext context;
+
+        public ManageRoleImpl(ApplicationDbContext context,RoleManager<IdentityRole> roleManager, UserManager<ApplicationUser> userManager)
         {
 
             this.roleManager = roleManager;
             this.userManager = userManager;
+            this.context = context;
         }
 
         public async Task<bool> CheckRole(string name)
@@ -165,32 +169,56 @@ namespace PharmaceuticalsCompany.Services.ManageRole
 
         public async Task<List<UserRoleViewModel>> ListUserInRole(string id)
         {
+            var roleAdmin= context.Roles.SingleOrDefault(m => m.Name == "Admin");
             var model = new List<UserRoleViewModel>();
             var role = await roleManager.FindByIdAsync(id);
+          
             foreach (var user in userManager.Users)
             {
-                var userRoleViewModel = new UserRoleViewModel
+                bool flag = false;
+                foreach (var item in context.UserRoles)
                 {
-                    UserId = user.Id,
-                    UserName = user.UserName,
-                    Email = user.Email
 
-                };
-                if(role!=null)
-                {
-                    if (await userManager.IsInRoleAsync(user, role.Name))
+                    if (item.RoleId == roleAdmin.Id  && item.UserId==user.Id)
                     {
-                        userRoleViewModel.IsSelected = "true";
+                        flag = true;
+                        break;
+
                     }
-                    else
-                    {
-                        userRoleViewModel.IsSelected ="false";
-                    }
+
 
                 }
+               if(flag==false)
+                {
+                    var userRoleViewModel = new UserRoleViewModel
+                    {
+                        UserId = user.Id,
+                        UserName = user.UserName,
+                        Email = user.Email
+
+                    };
+                    if (role != null)
+                    {
+
+                        if (await userManager.IsInRoleAsync(user, role.Name))
+                        {
+                            userRoleViewModel.IsSelected = "true";
+                        }
+                        else
+                        {
+                            userRoleViewModel.IsSelected = "false";
+                        }
+
+                    }
+                        model.Add(userRoleViewModel);
+                }
                
-                model.Add(userRoleViewModel);
+               
+            
             }
+          
+            
+
             return model;
         }
     }
