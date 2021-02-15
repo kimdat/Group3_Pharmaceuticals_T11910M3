@@ -6,29 +6,29 @@
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
 
-<link rel="stylesheet" type="text/css" href="~/css/KimDat/AuthenticationCareer.css">
+
+<link rel="stylesheet" type="text/css" href="~/css/KimDat/CareerRegisterLogin.css" />
 <link rel="stylesheet" type="text/css" href="~/css/KimDat/css-loader.css" />
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
 <style>
-    .error
-    {
-        color:red;
-        font-weight:bold;
+    .error {
+        color: red;
+        font-weight: bold;
     }
+
     input[type=date] {
         width: 97%;
-      
     }
+
     input[type=email] {
         width: 97%;
     }
-   
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="~/js/Kimdat/AjaxCareerAuthentication1.js">
- 
+
 </script>
 <stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -56,7 +56,7 @@
                             <div class="form-group ">
                                 <i class="fa fa-envelope"></i>
                                 <label>Email:</label>
-                                <input type="text"  class="form-control" name="Email">
+                                <input type="text" class="form-control" name="Email">
                                 <span class="error" />
                             </div>
                             <div class="form-group">
@@ -64,7 +64,7 @@
                                 <label>PassWord:</label>
                                 <input type="password" class="form-control" name="PassWord">
                                 <span class="error" />
-                            
+
                             </div>
                             Forgot password? <a style="color:blue" data-toggle="modal" data-target="#ModalForgot">click here</a>
                         </div>
@@ -212,7 +212,7 @@
                                                         <div class="form-group separator">
                                                             <span class="form-label">Join Date</span>
                                                             <input type="hidden" name="[0].JoinDate" class="JoinDate">
-                                                            <input class="form-control chooseJoin" type="date" min="1971-01-01"  name="[0].chooseJoin">
+                                                            <input class="form-control chooseJoin" type="date" min="1971-01-01" name="[0].chooseJoin">
                                                             <span class="error" />
                                                         </div>
                                                     </div>
@@ -405,7 +405,7 @@
                 <form asp-action="ForgotPassWord" asp-controller="career" id="forgotPass" method="post">
                     <div class="modal-body forgot">
                         <p></p>
-                        <input placeholder="enter your email" name="Email" type="text"  />
+                        <input placeholder="enter your email" name="Email" type="text" />
                         <span class="error"></span>
                     </div>
 
@@ -441,10 +441,9 @@
                 <span>A</span>
                 <span>I</span>
                 <span>T</span>
-              
+
             </div>
         </div>
     </div>
     <style>
-       
     </style>
