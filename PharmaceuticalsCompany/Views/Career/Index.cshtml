@@ -5,7 +5,7 @@
 }
 @using Microsoft.AspNetCore.Identity
 
-<link rel="stylesheet" type="text/css" href="~/css/KimDat/IndexCareer.css">
+<link rel="stylesheet" type="text/css" href="~/css/KimDat/CareerProfile.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="~/css/KimDat/css-loader.css" />
 <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
@@ -55,10 +55,10 @@
                     <input type="hidden" value="@Model.Photo" name="Photo">
                     <input readonly type="hidden" name="Id" value="@Model.Id">
                     <img src="/@Model.Photo" width="200" height="100" />
-                    <div class="wrap-input2  ">
+                    <div class="">
                         <label> Email:</label>
 
-                        <input readonly class="input2" type="email" value="@Model.Email" name="Email">
+                        <input readonly class="input1" type="email" value="@Model.Email" name="Email">
                         <span class="focus-input2"></span>
 
 
@@ -81,7 +81,7 @@
                         <span class="focus-input2"></span>
                     </div>
 
-                    <div class="wrap-input2 validate-input">
+                    <div class="">
                         <label>DateOfBirth:</label>
                         <input type="hidden" value="@Model.DateOfBirth" name="DateOfBirth">
                         <input class="input2" type="date" name="chooseDateOfBirth">

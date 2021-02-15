@@ -190,15 +190,15 @@ namespace PharmaceuticalsCompany.Controllers.Candidate
             if (file != null && file.Length > 0)
             {
 
-
-                string filePath = $"{_hostingEnvironment.WebRootPath}\\files\\{file.FileName}";
+                string uniqueFile = Guid.NewGuid().ToString() + "_" + file.FileName;
+                string filePath = $"{_hostingEnvironment.WebRootPath}\\files\\{ uniqueFile}";
                 string fileName = file.FileName;
                 if (fileName.Split(".").Last() == "pdf")
                 {
                     using (FileStream fileStream = System.IO.File.Create(filePath))
                     {
                         file.CopyTo(fileStream);
-                        career.Resume = fileName;
+                        career.Resume =uniqueFile;
                         fileStream.Flush();
                         fileStream.Close();
                     }
@@ -209,11 +209,12 @@ namespace PharmaceuticalsCompany.Controllers.Candidate
                     int indexextensionFile = file.FileName.LastIndexOf(extentionFile);
                     fileName = file.FileName.Substring(0, indexextensionFile);
                     fileName = fileName + "pdf";
-                    filePath = $"{_hostingEnvironment.WebRootPath}\\files\\{fileName}";
+                    uniqueFile = Guid.NewGuid().ToString() + "_" + fileName;
+                    filePath = $"{_hostingEnvironment.WebRootPath}\\files\\{uniqueFile}";
                     using (FileStream fileStream = System.IO.File.Create(filePath))
                     {
                         file.CopyTo(fileStream);
-                        career.Resume = fileName;
+                        career.Resume = uniqueFile;
                         fileStream.Flush();
                         fileStream.Close();
                     }
@@ -256,14 +257,15 @@ namespace PharmaceuticalsCompany.Controllers.Candidate
             //upload pho to
             if (fileUser != null && fileUser.Length > 0)
             {
-                string filePathUser = Path.Combine("wwwroot/images", fileUser.FileName);
+                string uniqueFile = Guid.NewGuid().ToString() + "_" + fileUser.FileName;
+                string filePathUser = Path.Combine("wwwroot/images", uniqueFile);
                 if (!System.IO.File.Exists(filePathUser))
                 {
                     var stream = new FileStream(filePathUser, FileMode.Create);
                     await fileUser.CopyToAsync(stream);
 
                 }
-                career.Photo = "images/" + fileUser.FileName;
+                career.Photo = "images/" + uniqueFile;
             }
             var user = await services.Register(career, educationDetails);
             if (user != null)
@@ -314,11 +316,11 @@ namespace PharmaceuticalsCompany.Controllers.Candidate
             }
             if (services.checkEmailUserConFirm(userId).Result == "true")
             {
-                ViewBag.Msg = "Email,token invalid ";
+                ViewBag.Msg = "Email or token invalid or token has been expired ";
             }
             else if (services.checkEmailUserConFirm(userId).Result == null)
             {
-                ViewBag.Msg = "Email,token invalid ";
+                ViewBag.Msg = "Email or token invalid or token has been expired  ";
      
             }
             var vertify = await services.VertiFyEmail(userId, token);
@@ -329,13 +331,10 @@ namespace PharmaceuticalsCompany.Controllers.Candidate
 
             else
             {
-                ViewBag.Msg = "Email,token invalid ";
+                ViewBag.Msg = "Email or token invalid or token has been expired";
              
             }
-            if (services.checkEmailUserConFirm(userId).Result == "true")
-            {
-                ViewBag.Msg = "Email,token invalid ";
-            }
+           
             return View();
         }
         public IActionResult PDFViewerNewTab(string fileName)
@@ -376,9 +375,9 @@ namespace PharmaceuticalsCompany.Controllers.Candidate
             //  string  filePath = $"{_hostingEnvironment.WebRootPath}\\files\\{file.FileName}";
             if (file != null && file.Length > 0)
             {
-
-                string filePath = $"{_hostingEnvironment.WebRootPath}\\files\\{file.FileName}";
-                string fileName = file.FileName;
+                string uniqueFile = Guid.NewGuid().ToString() + "_" + file.FileName;
+                string filePath = $"{_hostingEnvironment.WebRootPath}\\files\\{uniqueFile}";
+                string fileName = uniqueFile;
                 if (fileName.Split(".").Last() == "pdf")
                 {
                     using (FileStream fileStream = System.IO.File.Create(filePath))
@@ -395,11 +394,12 @@ namespace PharmaceuticalsCompany.Controllers.Candidate
                     int indexextensionFile = file.FileName.LastIndexOf(extentionFile);
                     fileName = file.FileName.Substring(0, indexextensionFile);
                     fileName = fileName + "pdf";
-                    filePath = $"{_hostingEnvironment.WebRootPath}\\files\\{fileName}";
+                    uniqueFile = Guid.NewGuid().ToString() + "_" + fileName;
+                    filePath = $"{_hostingEnvironment.WebRootPath}\\files\\{uniqueFile}";
                     using (FileStream fileStream = System.IO.File.Create(filePath))
                     {
                         file.CopyTo(fileStream);
-                        career.Resume = fileName;
+                        career.Resume =uniqueFile;
                         fileStream.Flush();
                         fileStream.Close();
                     }
@@ -467,7 +467,7 @@ namespace PharmaceuticalsCompany.Controllers.Candidate
             var changePass = await services.ChangePassWord(model);
             if (changePass.Errors.Count() == 0)
             {
-                TempData["success"] = "password have been changed";
+                TempData["success"] = "password has been changed";
                 return Json(new
                 {
                     success = true
@@ -516,7 +516,8 @@ namespace PharmaceuticalsCompany.Controllers.Candidate
 
             if (fileUser != null && fileUser.Length > 0)
             {
-                string filePath = Path.Combine("wwwroot/images", fileUser.FileName);
+                string  uniqueFileUser=Guid.NewGuid().ToString()+"_"+fileUser.FileName;
+                string filePath = Path.Combine("wwwroot/images", uniqueFileUser);
                 if (!System.IO.File.Exists(filePath))
                 {
                     var stream = new FileStream(filePath, FileMode.Create);
