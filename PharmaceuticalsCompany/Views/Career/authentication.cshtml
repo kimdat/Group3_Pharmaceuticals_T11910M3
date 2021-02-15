@@ -25,6 +25,15 @@
     input[type=email] {
         width: 97%;
     }
+    .field-icon {
+        float: right;
+        margin-right:30px;
+      
+        margin-top: -25px;
+        position: relative;
+        z-index: 2;
+    }
+  
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="~/js/Kimdat/AjaxCareerAuthentication1.js">
@@ -62,7 +71,11 @@
                             <div class="form-group">
                                 <i class="fas fa-key"></i>
                                 <label>PassWord:</label>
-                                <input type="password" class="form-control" name="PassWord">
+                             
+                                    <input type="password" class="form-control" id="passwordLogin" name="PassWord">
+                                    <span toggle="#passwordLogin" class="hidden passWordShowHide fa fa-fw fa-eye-slash field-icon toggle-password"></span>
+                                
+                              
                                 <span class="error" />
 
                             </div>
@@ -101,13 +114,16 @@
                                     <div class="form-group">
                                         <i class="fas fa-key"></i>
                                         <label>PassWord:</label>
-                                        <input type="password" class="form-control" name="PassWord">
+                                        <input type="password" class="form-control" id="passwordRegister" name="PassWord">
+                                        <span toggle="#passwordRegister" class="hidden passWordShowHide fa fa-fw fa-eye-slash field-icon toggle-password"></span>
+
                                         <span class="error" />
                                     </div>
                                     <div class="form-group">
                                         <i class="fas fa-key"></i>
                                         <label>ConfirmPassWord:</label>
-                                        <input type="password" class="form-control" name="ConfirmPassWord">
+                                        <input type="password" class="form-control" name="ConfirmPassWord" id="confirmpasswordRegister">
+                                        <span toggle="#confirmpasswordRegister" class="hidden passWordShowHide fa fa-fw fa-eye-slash field-icon toggle-password"></span>
                                         <span class="error" />
                                     </div>
                                     <div class="form-group">
@@ -420,6 +436,18 @@
         </div>
     </div>
     <script>
+        $("input[type = 'password']").keyup(function () {
+          
+            if ($(this).val() != "") {
+                $(this).parent().find(".passWordShowHide").removeClass("hidden");
+            }
+            else {
+                $(this).parent().find(".passWordShowHide").addClass("hidden");
+            }
+              
+           
+        });
+        
         $('#ModalForgot').on('shown.bs.modal', function (e) {
             $('.forgot p').html('');
             $('.sendReset').removeClass('hidden');
@@ -427,6 +455,16 @@
             $('.forgot input').removeClass('hidden');
             // do something...
         })
+        $(".toggle-password").click(function () {
+
+            $(this).toggleClass("fa-eye fa-eye-slash");
+            var input = $($(this).attr("toggle"));
+            if (input.attr("type") == "password") {
+                input.attr("type", "text");
+            } else {
+                input.attr("type", "password");
+            }
+        });
     </script>
     <div class="wait">
         <div class="wrapper">

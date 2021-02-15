@@ -30,6 +30,7 @@
 <link rel="stylesheet" type="text/css" href="~/css//KimDat/util.css">
 <!--===============================================================================================-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <div style="background-color: #666666;">
 
     <div class="limiter">
@@ -49,12 +50,14 @@
 
 
                     <div class="wrap-input100 validate-input" data-validate="Password is required">
-                        <input class="input100" type="password" name="PassWord">
+                        <input class="input100" type="password" name="PassWord" id="myInput">
+
                         <span class="focus-input100"></span>
+
                         <span class="label-input100">Password</span>
                     </div>
 
-
+                    <input type="checkbox"  onclick="myFunction()">Show Password
 
 
                     <div class="container-login100-form-btn">
@@ -116,6 +119,16 @@
     </div>
 </div>
 <div class="wait"></div>
+<script>
+    function myFunction() {
+        var x = document.getElementById("myInput");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+</script>
 <style>
     .wait {
         display: none;
