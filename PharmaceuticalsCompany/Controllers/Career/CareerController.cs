@@ -291,7 +291,7 @@ namespace PharmaceuticalsCompany.Controllers.Candidate
                 message.Body = bodyBuilder.ToMessageBody();
                 var client = new SmtpClient();
                 client.Connect("smtp.gmail.com", 465, true);
-                client.Authenticate("shoplaptopfpt@gmail.com", "AB123123");
+                client.Authenticate("company13072@gmail.com", "nghiahiep");
                 client.Send(message);
                 return Json(new
                 {
@@ -581,7 +581,7 @@ namespace PharmaceuticalsCompany.Controllers.Candidate
                     message.Body = bodyBuilder.ToMessageBody();
                     var client = new SmtpClient();
                     client.Connect("smtp.gmail.com", 465, true);
-                    client.Authenticate("shoplaptopfpt@gmail.com", "AB123123");
+                    client.Authenticate("company13072@gmail.com", "nghiahiep");
                     client.Send(message);
                     return Json(new
                     {
