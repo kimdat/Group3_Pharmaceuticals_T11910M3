@@ -189,65 +189,73 @@ namespace PharmaceuticalsCompany.Controllers.Candidate
             //upload resume and convert to pdf
             if (file != null && file.Length > 0)
             {
-
                 string uniqueFile = Guid.NewGuid().ToString() + "_" + file.FileName;
-                string filePath = $"{_hostingEnvironment.WebRootPath}\\files\\{ uniqueFile}";
-                string fileName = file.FileName;
+                string filePath = $"{_hostingEnvironment.WebRootPath}\\files\\{uniqueFile}";
+                string fileName = uniqueFile;
                 if (fileName.Split(".").Last() == "pdf")
                 {
                     using (FileStream fileStream = System.IO.File.Create(filePath))
                     {
                         file.CopyTo(fileStream);
-                        career.Resume =uniqueFile;
+                        career.Resume = fileName;
                         fileStream.Flush();
                         fileStream.Close();
                     }
                 }
                 else
                 {
-                    string extentionFile = file.FileName.Split(".").Last();
-                    int indexextensionFile = file.FileName.LastIndexOf(extentionFile);
-                    fileName = file.FileName.Substring(0, indexextensionFile);
+                    string extentionFile = fileName.Split(".").Last();
+                    int indexextensionFile = fileName.LastIndexOf(extentionFile);
+                    fileName = fileName.Substring(0, indexextensionFile);
                     fileName = fileName + "pdf";
-                    uniqueFile = Guid.NewGuid().ToString() + "_" + fileName;
-                    filePath = $"{_hostingEnvironment.WebRootPath}\\files\\{uniqueFile}";
-                    using (FileStream fileStream = System.IO.File.Create(filePath))
-                    {
-                        file.CopyTo(fileStream);
-                        career.Resume = uniqueFile;
-                        fileStream.Flush();
-                        fileStream.Close();
-                    }
-
+                    filePath = $"{_hostingEnvironment.WebRootPath}\\files\\{fileName}";
                     if (file.FileName.Split(".").Last() == "docx" || file.FileName.Split(".").Last() == "doc" || file.FileName.Split(".").Last() == "docm" || file.FileName.Split(".").Last() == "dot" || file.FileName.Split(".").Last() == "dotx")
                     {
+                        using (var stream = new MemoryStream())
+                        {
+                            await file.CopyToAsync(stream);
+                            stream.Position = 0;
+                            using (var document = new Document(stream, Spire.Doc.FileFormat.Auto))
+                            {
+                                document.SaveToFile(filePath, Spire.Doc.FileFormat.PDF);
+                            }
 
+                            career.Resume = fileName;
+                            stream.Close();
 
-                        Document document = new Document();
-
-                        document.LoadFromFile(filePath);
-
-                        document.SaveToFile(filePath, Spire.Doc.FileFormat.PDF);
-
-
-
+                        }
                     }
-
                     else if (file.FileName.Split(".").Last() == "ppt" || file.FileName.Split(".").Last() == "pptx" || file.FileName.Split(".").Last() == "pptm")
                     {
-                        Presentation presentation = new Presentation();
-                        presentation.LoadFromFile(filePath);
-                        presentation.SaveToFile(filePath, Spire.Presentation.FileFormat.PDF);
 
+                        using (var stream = new MemoryStream())
+                        {
+                            await file.CopyToAsync(stream);
+                            stream.Position = 0;
+                            using (var presentation = new Presentation(stream, Spire.Presentation.FileFormat.Auto))
+                            {
+
+                                presentation.SaveToFile(filePath, Spire.Presentation.FileFormat.PDF);
+                            }
+                            career.Resume = fileName;
+                            stream.Close();
+
+
+                        }
                     }
-
                     else
                     {
-                        Workbook workbook = new Workbook();
-                        workbook.LoadFromFile(filePath);
-                        Worksheet sheet = workbook.Worksheets[0];
-
-                        sheet.SaveToPdf(filePath);
+                        using (var stream = new MemoryStream())
+                        {
+                            await file.CopyToAsync(stream);
+                            stream.Position = 0;
+                            Workbook workbook = new Workbook();
+                            workbook.LoadFromStream(stream);
+                            Worksheet sheet = workbook.Worksheets[0];
+                            sheet.SaveToPdf(filePath);
+                            career.Resume = fileName;
+                            stream.Close();
+                        }
 
                     }
 
@@ -371,8 +379,6 @@ namespace PharmaceuticalsCompany.Controllers.Candidate
         [HttpPost]
         public async Task<IActionResult> EditResume(CareerModel career, IFormFile file, [FromServices] IHostingEnvironment hostingEnvironment)
         {
-
-            //  string  filePath = $"{_hostingEnvironment.WebRootPath}\\files\\{file.FileName}";
             if (file != null && file.Length > 0)
             {
                 string uniqueFile = Guid.NewGuid().ToString() + "_" + file.FileName;
@@ -390,68 +396,72 @@ namespace PharmaceuticalsCompany.Controllers.Candidate
                 }
                 else
                 {
-                    string extentionFile = file.FileName.Split(".").Last();
-                    int indexextensionFile = file.FileName.LastIndexOf(extentionFile);
-                    fileName = file.FileName.Substring(0, indexextensionFile);
+                    string extentionFile = fileName.Split(".").Last();
+                    int indexextensionFile =fileName.LastIndexOf(extentionFile);
+                    fileName = fileName.Substring(0, indexextensionFile);
                     fileName = fileName + "pdf";
-                    uniqueFile = Guid.NewGuid().ToString() + "_" + fileName;
-                    filePath = $"{_hostingEnvironment.WebRootPath}\\files\\{uniqueFile}";
-                    using (FileStream fileStream = System.IO.File.Create(filePath))
-                    {
-                        file.CopyTo(fileStream);
-                        career.Resume =uniqueFile;
-                        fileStream.Flush();
-                        fileStream.Close();
-                    }
-
+                    filePath = $"{_hostingEnvironment.WebRootPath}\\files\\{fileName}";
                     if (file.FileName.Split(".").Last() == "docx" || file.FileName.Split(".").Last() == "doc" || file.FileName.Split(".").Last() == "docm" || file.FileName.Split(".").Last() == "dot" || file.FileName.Split(".").Last() == "dotx")
                     {
+                        using (var stream = new MemoryStream())
+                        {
+                            await file.CopyToAsync(stream);
+                            stream.Position = 0;
+                            using (var document=new Document(stream, Spire.Doc.FileFormat.Auto))
+                            {
+                                document.SaveToFile(filePath, Spire.Doc.FileFormat.PDF);
+                            }
+                         
+                            career.Resume = fileName;
+                            stream.Close();
 
-
-                        Document document = new Document();
-
-                        document.LoadFromFile(filePath);
-
-                        document.SaveToFile(filePath, Spire.Doc.FileFormat.PDF);
-
-
-
+                        }
                     }
-
                     else if (file.FileName.Split(".").Last() == "ppt" || file.FileName.Split(".").Last() == "pptx" || file.FileName.Split(".").Last() == "pptm")
                     {
-                        Presentation presentation = new Presentation();
-                        presentation.LoadFromFile(filePath);
-                        presentation.SaveToFile(filePath, Spire.Presentation.FileFormat.PDF);
+                      
+                        using (var stream = new MemoryStream())
+                        {
+                            await file.CopyToAsync(stream);
+                            stream.Position = 0;
+                            using (var presentation = new Presentation(stream, Spire.Presentation.FileFormat.Auto))
+                            {
+                              
+                                presentation.SaveToFile(filePath, Spire.Presentation.FileFormat.PDF);
+                            }
+                            career.Resume = fileName;
+                            stream.Close();
 
+
+                        }
                     }
-
                     else
                     {
-                        Workbook workbook = new Workbook();
-                        workbook.LoadFromFile(filePath);
-                        Worksheet sheet = workbook.Worksheets[0];
-
-                        sheet.SaveToPdf(filePath);
+                        using (var stream = new MemoryStream())
+                        {
+                            await file.CopyToAsync(stream);
+                            stream.Position = 0;
+                            Workbook workbook = new Workbook();
+                            workbook.LoadFromStream(stream);
+                            Worksheet sheet = workbook.Worksheets[0];
+                            sheet.SaveToPdf(filePath);
+                            career.Resume = fileName;
+                            stream.Close();
+                        }
 
                     }
 
                 }
-
-
-
-
+                var edit_carrer = await services.EditResume(career);
+                if (edit_carrer != null)
+                {
+                    TempData["success"] = "update Resume successfully";
+                    return RedirectToAction("index", "Career");
+                }
             }
+           
 
-
-            var edit_carrer = await services.EditResume(career);
-            if (edit_carrer != null)
-            {
-                TempData["success"] = "update Resume successfully";
-                return RedirectToAction("index", "Career");
-            }
-
-
+              
             return View();
         }
         public IActionResult ChangePass()
