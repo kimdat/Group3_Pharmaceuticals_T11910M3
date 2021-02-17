@@ -71,7 +71,7 @@ namespace PharmaceuticalsCompany.Controllers.Candidate
                 if(!User.IsInRole("Admin"))
                     return RedirectToAction("index");
                 else
-                    return RedirectToAction("AdminPage","Home");
+                    return RedirectToAction("index","AdminCareer");
             }
       
           else
