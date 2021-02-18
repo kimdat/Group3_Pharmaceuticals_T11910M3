@@ -535,7 +535,7 @@ namespace PharmaceuticalsCompany.Controllers.Candidate
 
                 }
 
-                career.Photo = "images/" + fileUser.FileName;
+                career.Photo = "images/" + uniqueFileUser;
             }
 
             var edit_carrer = await services.EditProfile(career);
