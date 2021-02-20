@@ -13249,23 +13249,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\nghia\\.nuget\\packages\\": {},
+    "C:\\Users\\Admin\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Fptaptech\\Doan\\Group3_Pharmaceuticals_T11910M3\\PharmaceuticalsCompany\\PharmaceuticalsCompany.csproj",
+      "projectUniqueName": "C:\\Group3_Pharmaceuticals_T11910M3\\PharmaceuticalsCompany\\PharmaceuticalsCompany.csproj",
       "projectName": "PharmaceuticalsCompany",
-      "projectPath": "C:\\Fptaptech\\Doan\\Group3_Pharmaceuticals_T11910M3\\PharmaceuticalsCompany\\PharmaceuticalsCompany.csproj",
-      "packagesPath": "C:\\Users\\nghia\\.nuget\\packages\\",
-      "outputPath": "C:\\Fptaptech\\Doan\\Group3_Pharmaceuticals_T11910M3\\PharmaceuticalsCompany\\obj\\",
+      "projectPath": "C:\\Group3_Pharmaceuticals_T11910M3\\PharmaceuticalsCompany\\PharmaceuticalsCompany.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "C:\\Group3_Pharmaceuticals_T11910M3\\PharmaceuticalsCompany\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\nghia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

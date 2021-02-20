@@ -50,13 +50,14 @@ namespace PharmaceuticalsCompany.Controllers.Candidate
                 {
                     return RedirectToAction("Authentication");
                 }
+              
                 if (TempData.ContainsKey("success"))
                 {
                     ViewBag.Update = TempData["success"];
                 }
 
 
-
+             
                 ViewBag.Education = await services.GetEducationDetails();
 
                 // ViewBag.Msg = a;
@@ -352,7 +353,7 @@ namespace PharmaceuticalsCompany.Controllers.Candidate
                 string path = _hostingEnvironment.WebRootPath + "\\files\\" + fileName;
                 return File(System.IO.File.ReadAllBytes(path), "application/pdf");
             }
-            catch (Exception ex)
+            catch 
             {
 
                 return BadRequest();
@@ -455,7 +456,7 @@ namespace PharmaceuticalsCompany.Controllers.Candidate
                 var edit_carrer = await services.EditResume(career);
                 if (edit_carrer != null)
                 {
-                    TempData["success"] = "update Resume successfully";
+                    TempData["success1"] = "update Resume successfully";
                     return RedirectToAction("index", "Career");
                 }
             }

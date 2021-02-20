@@ -8,7 +8,7 @@ using PharmaceuticalsCompany.Models.Role;
 using PharmaceuticalsCompany.Services.ManageRole;
 namespace PharmaceuticalsCompany.Controllers.Role
 {
-   [Authorize(Roles = "Admin")]
+ [Authorize(Roles = "Admin")]
     public class RoleController : Controller
     {
         private IManageRole services;
@@ -23,6 +23,8 @@ namespace PharmaceuticalsCompany.Controllers.Role
         public IActionResult Index()
         {
             var list = services.ListRole();
+
+       
             if (TempData.ContainsKey("EditRole"))
             {
                 ViewBag.EditRole = TempData["EditRole"];
@@ -34,7 +36,7 @@ namespace PharmaceuticalsCompany.Controllers.Role
           
             return View("~/Views/Admin/Role/Index.cshtml", services.ListRole());
         }
-        //[Authorize(Roles = "Ad123")]
+     
         [Route("Admin/Role/Create")]
          
         [HttpGet]
