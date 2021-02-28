@@ -457,7 +457,7 @@ namespace PharmaceuticalsCompany.Controllers.Candidate
                 var edit_carrer = await services.EditResume(career);
                 if (edit_carrer != null)
                 {
-                    TempData["success1"] = "update Resume successfully";
+                    TempData["success"] = "update Resume successfully";
                     return RedirectToAction("index", "Career");
                 }
             }
