@@ -19,6 +19,7 @@ using PharmaceuticalsCompany.Services.ManageRole;
 using PharmaceuticalsCompany.Services.Contact;
 using PharmaceuticalsCompany.Services.Product;
 using PharmaceuticalsCompany.Services.Tablets;
+using ReflectionIT.Mvc.Paging;
 
 namespace PharmaceuticalsCompany
 {
@@ -55,7 +56,9 @@ namespace PharmaceuticalsCompany
                     Configuration.GetConnectionString("DefaultConnection")));
             
             services.AddSession();
+          
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+          
             services.ConfigureApplicationCookie(options => options.LoginPath = "/Admin/Login");
             services.ConfigureApplicationCookie(options => options.AccessDeniedPath = new PathString("/Admin/AccessDenied"));
         }

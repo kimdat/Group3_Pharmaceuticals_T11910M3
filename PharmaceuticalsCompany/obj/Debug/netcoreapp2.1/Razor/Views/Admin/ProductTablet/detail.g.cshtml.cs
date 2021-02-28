@@ -71,7 +71,7 @@ using PharmaceuticalsCompany.Models;
             WriteLiteral("\r\n<nav aria-label=\"breadcrumb\">\r\n    <ol class=\"breadcrumb\">\r\n        <li class=\"breadcrumb-item\">");
             EndContext();
             BeginContext(203, 53, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "829cc57af2944e2ab7c4db3fd6487d48", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1ba2caee14ba4eee811d3d649e8bae46", async() => {
                 BeginContext(247, 5, true);
                 WriteLiteral("Home/");
                 EndContext();
@@ -95,7 +95,7 @@ using PharmaceuticalsCompany.Models;
             WriteLiteral("</li>\r\n        <li class=\"breadcrumb-item\">");
             EndContext();
             BeginContext(299, 65, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "214edbdb3eb34f9fbfc5b70809922817", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3225ff0f35f94c84a20020df7d6236c6", async() => {
                 BeginContext(345, 15, true);
                 WriteLiteral("Product Capsule");
                 EndContext();
@@ -119,7 +119,7 @@ using PharmaceuticalsCompany.Models;
             WriteLiteral("</li>\r\n        <li class=\"breadcrumb-item active\" aria-current=\"page\">Capsule/ Encapsulation</li>\r\n    </ol>\r\n</nav>\r\n<div class=\"container\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-4\">\r\n            ");
             EndContext();
             BeginContext(574, 74, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "d29250a691744c62954c34e357307b5b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "656cc560737f4e4d8da5994a7836f850", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -146,7 +146,7 @@ AddHtmlAttributeValue("", 586, Url.Content(Model.TabPhoto), 586, 28, false);
             WriteLiteral("\r\n        </div>\r\n        <div class=\"col-md-7\" style=\"border-radius:0;\">\r\n\r\n            ");
             EndContext();
             BeginContext(737, 2729, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "55e81ee3e49c4c0097446e3e8053f2f0", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "34aebbd07a224b3aa85c7b9f783f9f05", async() => {
                 BeginContext(743, 241, true);
                 WriteLiteral("\r\n                <div class=\"jumbotron\">\r\n                    <h4 style=\"margin-top:-50px; margin-left:-40px;\">Product Details </h4>\r\n                    <dl class=\"dl-horizontal\">\r\n                        <dt>\r\n                            ");
                 EndContext();

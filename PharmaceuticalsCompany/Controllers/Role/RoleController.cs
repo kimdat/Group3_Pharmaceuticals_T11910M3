@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PharmaceuticalsCompany.Models.Role;
 using PharmaceuticalsCompany.Services.ManageRole;
+using ReflectionIT.Mvc.Paging;
+
 namespace PharmaceuticalsCompany.Controllers.Role
 {
  [Authorize(Roles = "Admin")]
@@ -20,9 +22,10 @@ namespace PharmaceuticalsCompany.Controllers.Role
         }
         [Route("Admin/Role")]
 
-        public IActionResult Index()
+        public  IActionResult Index(int page=1)
         {
             var list = services.ListRole();
+            var model =  PagingList.Create(list,1,page);
 
        
             if (TempData.ContainsKey("EditRole"))
@@ -34,7 +37,7 @@ namespace PharmaceuticalsCompany.Controllers.Role
                 ViewBag.Error = TempData["Error"];
             }
           
-            return View("~/Views/Admin/Role/Index.cshtml", services.ListRole());
+            return View("~/Views/Admin/Role/Index.cshtml",model);
         }
      
         [Route("Admin/Role/Create")]

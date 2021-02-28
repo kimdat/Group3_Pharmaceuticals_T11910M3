@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PharmaceuticalsCompany.Models.Career
+namespace PharmaceuticalsCompany.Models
 {
     public class QuoteUs
     {

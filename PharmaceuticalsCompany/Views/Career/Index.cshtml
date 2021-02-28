@@ -15,6 +15,16 @@
             $(".successUpdate").addClass("hidden");
         });
     });
+    function EditResume() {
+        var Resume = $("#editResume").find('input[type=file]').val();
+        if (Resume.trim() == "") {
+            $(".wait").hide();
+            $("#ModalValid .modal-body p").html("please choose resume ");
+            $(".modalValid").click();
+            return false;
+        }
+       
+    }
 </script>
 <style>
     .field-icon {
@@ -172,10 +182,7 @@
             <div class="tabcontent" id="education">
 
                 <form class="educationform" method="post" onsubmit="return Validation()" asp-controller="Career" asp-action="EditEducation">
-                    @if (@ViewBag.Update != null)
-                    {
-                        <div class="p-3 mb-2 bg-info text-white  successUpdate">@ViewBag.Update</div>
-                    }
+                  
                     <div id="booking">
                         @for (int i = 0; i < ViewBag.Education.Count; i++)
                         {
@@ -286,11 +293,8 @@
 
 
             <div class="tabcontent" id="resume">
-                <form class="" method="post" asp-controller="Career" asp-action="EditResume" enctype="multipart/form-data">
-                    @if (@ViewBag.Update != null)
-                    {
-                        <div class="p-3 mb-2 bg-info text-white  successUpdate">@ViewBag.Update</div>
-                    }
+                <form class="" method="post" asp-controller="Career"  onsubmit="return EditResume()" id="editResume" asp-action="EditResume" enctype="multipart/form-data">
+
                     <input readonly type="hidden" value="@Model.Id" name="Id">
                     <div class="frame" style="height:820px">
                         <h1>Your Resume:</h1>
@@ -318,17 +322,18 @@
                             </div>
                             <img src="https://100dayscss.com/codepen/syncing.svg" class="syncing">
                             <img src="https://100dayscss.com/codepen/checkmark.svg" class="done">
-
+                            <div class="container-contact2-form-btn" style="position:absolute;bottom:0;width:100%">
+                                <div class="wrap-contact2-form-btn">
+                                    <div class="contact2-form-bgbtn"></div>
+                                    <button class="contact2-form-btn  " onclick="updateResume()" name="label" value="BtnResume">
+                                        Update your Resume
+                                    </button>
+                                </div>
+                            </div>
                         </div>
+                        
                     </div>
-                    <div class="container-contact2-form-btn">
-                        <div class="wrap-contact2-form-btn">
-                            <div class="contact2-form-bgbtn"></div>
-                            <button class="contact2-form-btn  " onclick="updateResume()" name="label" value="BtnResume">
-                                Update your Resume
-                            </button>
-                        </div>
-                    </div>
+                   
                 </form>
             </div>
         </div>

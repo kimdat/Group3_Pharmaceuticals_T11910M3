@@ -379,7 +379,8 @@ namespace PharmaceuticalsCompany.Controllers.Candidate
 
         [HttpPost]
         public async Task<IActionResult> EditResume(CareerModel career, IFormFile file, [FromServices] IHostingEnvironment hostingEnvironment)
-        {
+        {  
+          
             if (file != null && file.Length > 0)
             {
                 string uniqueFile = Guid.NewGuid().ToString() + "_" + file.FileName;

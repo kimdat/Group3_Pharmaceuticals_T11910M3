@@ -1,7 +1,9 @@
 ﻿<link rel="stylesheet" type="text/css" href="~/css/KimDat/AdninCareerProfile.css" />
-<link rel="stylesheet" type="text/css" href="~/css/KimDat/css-loader.css"/>
+<link rel="stylesheet" type="text/css" href="~/css/KimDat/css-loader.css" />
+@model ReflectionIT.Mvc.Paging.PagingList<PharmaceuticalsCompany.Models.Career.ApplicationUser>
+@using ReflectionIT.Mvc.Paging
+@addTagHelper *, ReflectionIT.Mvc.Paging
 
-@model IEnumerable<PharmaceuticalsCompany.Models.Career.ApplicationUser>
 @{
     ViewData["Title"] = "Home Page";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
@@ -13,9 +15,117 @@
 
 
 <script src="~/js/Kimdat/jquery-3.2.1.min.js"></script>
-
-
 <style>
+    .pagination {
+        display: inline-block;
+        padding-left: 0;
+        margin: 20px 0;
+        border-radius: 4px;
+    }
+
+        .pagination > li {
+            display: inline;
+        }
+
+            .pagination > li > a,
+            .pagination > li > span {
+                position: relative;
+                float: left;
+                padding: 6px 12px;
+                margin-left: -1px;
+                line-height: 1.42857143;
+                color: #337ab7;
+                text-decoration: none;
+                background-color: #fff;
+                border: 1px solid #ddd;
+            }
+
+                .pagination > li > a:hover,
+                .pagination > li > span:hover,
+                .pagination > li > a:focus,
+                .pagination > li > span:focus {
+                    z-index: 2;
+                    color: #23527c;
+                    background-color: #eeeeee;
+                    border-color: #ddd;
+                }
+
+            .pagination > li:first-child > a,
+            .pagination > li:first-child > span {
+                margin-left: 0;
+                border-top-left-radius: 4px;
+                border-bottom-left-radius: 4px;
+            }
+
+            .pagination > li:last-child > a,
+            .pagination > li:last-child > span {
+                border-top-right-radius: 4px;
+                border-bottom-right-radius: 4px;
+            }
+
+        .pagination > .active > a,
+        .pagination > .active > span,
+        .pagination > .active > a:hover,
+        .pagination > .active > span:hover,
+        .pagination > .active > a:focus,
+        .pagination > .active > span:focus {
+            z-index: 3;
+            color: #fff;
+            cursor: default;
+            background-color: #337ab7;
+            border-color: #337ab7;
+        }
+
+        .pagination > .disabled > span,
+        .pagination > .disabled > span:hover,
+        .pagination > .disabled > span:focus,
+        .pagination > .disabled > a,
+        .pagination > .disabled > a:hover,
+        .pagination > .disabled > a:focus {
+            color: #777777;
+            cursor: not-allowed;
+            background-color: #fff;
+            border-color: #ddd;
+        }
+
+    .pagination-lg > li > a,
+    .pagination-lg > li > span {
+        padding: 10px 16px;
+        font-size: 18px;
+        line-height: 1.3333333;
+    }
+
+    .pagination-lg > li:first-child > a,
+    .pagination-lg > li:first-child > span {
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+    }
+
+    .pagination-lg > li:last-child > a,
+    .pagination-lg > li:last-child > span {
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+    }
+
+    .pagination-sm > li > a,
+    .pagination-sm > li > span {
+        padding: 5px 10px;
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    .pagination-sm > li:first-child > a,
+    .pagination-sm > li:first-child > span {
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+    }
+
+    .pagination-sm > li:last-child > a,
+    .pagination-sm > li:last-child > span {
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+    }
+
     .loader {
         border: 16px solid #f3f3f3;
         border-radius: 50%;
@@ -70,7 +180,7 @@
                         }
                         else {
 
-                           // alert("you have sent email successfully for " + $("input[name='To']").val());
+                            // alert("you have sent email successfully for " + $("input[name='To']").val());
                             //   window.location.href = "/Career"
                         }
 
@@ -86,6 +196,70 @@
         });
     });
 </script>
+@if (Model.Any())
+{
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 ">
+        <div class="card">
+            <div class="card-body">
+                <table id="product" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th> vai trò</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.FullName</td>
+                                <td>@item.PhoneNumber</td>
+                                <td>@Convert.ToString(string.Format("{0:dd/MM/yyyy}", @item.DateOfBirth))</td>
+
+                                <td>
+                                    <a data-toggle="modal" onclick="sendmail('@item.Email','@item.FullName')" data-target="#myModal" style="color:blue">@item.Email</a>
+                                    @if (!item.EmailConfirmed)
+                                    {
+                                        <p>
+
+                                            (has not been vertified)
+                                        </p>
+                                    }
+                                </td>
+
+                                <td> <img src="/@item.Photo" style="width:100px;height:100px"></td>
+                                <td>
+                                    <a class="btn btn-warning" href="Career/Profile/@item.Id">
+                                        watch Details
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>Id</th>
+                            <th> vai trò</th>
+                            <th></th>
+
+                        </tr>
+
+                    </tfoot>
+
+                </table>
+                <nav aria-label="Suppliers navigation example" style="float:right">
+                    @await this.Component.InvokeAsync("Pager", new { pagingList = this.Model })
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+}
 @if (Model.Any())
 {
 
@@ -180,7 +354,11 @@
                 count = count + 1;
 
             }
-
+            <div>
+                <nav aria-label="Suppliers navigation example" style="float:right">
+                    @await this.Component.InvokeAsync("Pager", new { pagingList = this.Model })
+                </nav>
+            </div>
 
         </div>
         <!-- /.card-body -->

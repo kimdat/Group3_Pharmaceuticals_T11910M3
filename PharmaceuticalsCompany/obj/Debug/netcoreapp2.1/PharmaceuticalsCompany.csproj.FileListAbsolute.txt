@@ -649,7 +649,6 @@ D:\Group3Doan\Group3_Pharmaceuticals_T11910M3\PharmaceuticalsCompany\obj\Debug\n
 D:\Group3Doan\Group3_Pharmaceuticals_T11910M3\PharmaceuticalsCompany\obj\Debug\netcoreapp2.1\PharmaceuticalsCompany.csproj.CoreCompileInputs.cache
 D:\Group3Doan\Group3_Pharmaceuticals_T11910M3\PharmaceuticalsCompany\obj\Debug\netcoreapp2.1\PharmaceuticalsCompany.RazorAssemblyInfo.cache
 D:\Group3Doan\Group3_Pharmaceuticals_T11910M3\PharmaceuticalsCompany\obj\Debug\netcoreapp2.1\PharmaceuticalsCompany.RazorAssemblyInfo.cs
-D:\Group3Doan\Group3_Pharmaceuticals_T11910M3\PharmaceuticalsCompany\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
 D:\Group3Doan\Group3_Pharmaceuticals_T11910M3\PharmaceuticalsCompany\obj\Debug\netcoreapp2.1\PharmaceuticalsCompany.AssemblyInfoInputs.cache
 D:\Group3Doan\Group3_Pharmaceuticals_T11910M3\PharmaceuticalsCompany\obj\Debug\netcoreapp2.1\PharmaceuticalsCompany.AssemblyInfo.cs
 D:\Group3Doan\Group3_Pharmaceuticals_T11910M3\PharmaceuticalsCompany\obj\Debug\netcoreapp2.1\PharmaceuticalsCompany.TagHelpers.input.cache
@@ -706,3 +705,4 @@ D:\Group3Doan\Group3_Pharmaceuticals_T11910M3\PharmaceuticalsCompany\obj\Debug\n
 D:\Group3Doan\Group3_Pharmaceuticals_T11910M3\PharmaceuticalsCompany\obj\Debug\netcoreapp2.1\Razor\Views\Admin\ProductTablet\Update.g.cshtml.cs
 D:\Group3Doan\Group3_Pharmaceuticals_T11910M3\PharmaceuticalsCompany\obj\Debug\netcoreapp2.1\Razor\Views\ProductCapsule\show.g.cshtml.cs
 D:\Group3Doan\Group3_Pharmaceuticals_T11910M3\PharmaceuticalsCompany\obj\Debug\netcoreapp2.1\Razor\Views\ProductTablet\showTablest.g.cshtml.cs
+D:\Group3Doan\Group3_Pharmaceuticals_T11910M3\PharmaceuticalsCompany\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs

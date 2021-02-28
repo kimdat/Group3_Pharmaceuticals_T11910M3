@@ -27,11 +27,13 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
+    <PackageReference Include="ReflectionIT.Mvc.Paging" Version="3.4.0" />
     <PackageReference Include="Syncfusion.DocIORenderer.Net.Core" Version="18.4.0.35" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Models\Role\" />
+    <Folder Include="Views\Shared\Pager\" />
   </ItemGroup>
 
   <ItemGroup>

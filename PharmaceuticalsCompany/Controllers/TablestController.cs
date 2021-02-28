@@ -151,7 +151,7 @@ namespace PharmaceuticalsCompany.Controllers
 
 
             var list = tablets.GetProductTablest();
-            return View(list);
+            return View("~/Views/ProductTablet/showTablest.cshtml",  list);
         }
         [Route("/Admin/ProductTablet/Detail/{id}")]
         public IActionResult detail(int id, IFormFile file)

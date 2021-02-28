@@ -9,6 +9,7 @@ using MailKit.Net.Smtp;
 using MimeKit;
 using PharmaceuticalsCompany.Models.Career;
 using Microsoft.AspNetCore.Authorization;
+using ReflectionIT.Mvc.Paging;
 
 namespace PharmaceuticalsCompany.Controllers.Career
 {
@@ -24,11 +25,12 @@ namespace PharmaceuticalsCompany.Controllers.Career
             this.services = services;
         }
         [Route("Admin/Career")]
-        public IActionResult Index()
+        public IActionResult Index(int page=1)
         {
           
             var users = services.GetAllUser();
-            return View("~/Views/Admin/Career/Index.cshtml",users);
+            var model = PagingList.Create(users, 1, page);
+            return View("~/Views/Admin/Career/Index.cshtml",model);
         }
      
         [HttpPost]

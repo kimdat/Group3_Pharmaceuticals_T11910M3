@@ -189,7 +189,7 @@ namespace PharmaceuticalsCompany.Controllers
         {
 
             var list = capsules.GetProductCapsules();
-            return View(list);
+            return View("~/Views/ProductCapsule/show.cshtml",list);
         }
         [Route("/Admin/ProductCapsule/Detail/{id}")]
         public IActionResult detail(int id)

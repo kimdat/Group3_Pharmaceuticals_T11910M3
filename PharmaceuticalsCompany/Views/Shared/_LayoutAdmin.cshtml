@@ -18,6 +18,12 @@
 
     <!-- Custom styles for this template-->
     <link href="~/Asset_Admin/css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Styles -->
+   
+
+    
 
 </head>
 
@@ -27,7 +33,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar" >
           
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -114,8 +120,16 @@
                         <a class="collapse-item" asp-action="Index" asp-controller="Role">List Role</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">ManageCareer:</h6>
-                    
+
                         <a class="collapse-item" asp-action="Index" asp-controller="AdminCareer">List Career</a>
+                        <div class="collapse-divider"></div>
+                        <h6 class="collapse-header">ManageProductCapsule:</h6>
+                        <a class="collapse-item" asp-action="Create" asp-controller="Product">Create ProductCapsule</a>
+                        <a class="collapse-item" asp-action="Index" asp-controller="Product">List ProductCapsule</a>
+                        <div class="collapse-divider"></div>
+                        <h6 class="collapse-header">ManageProductTablet:</h6>
+                        <a class="collapse-item" asp-action="Create" asp-controller="Tablest">Create ProductTablet</a>
+                        <a class="collapse-item" asp-action="Index" asp-controller="Tablest">List ProductTablet</a>
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header">Logout Screens:</h6>
                         <a class="collapse-item" asp-action="logout" asp-controller="Career">Logout</a>
