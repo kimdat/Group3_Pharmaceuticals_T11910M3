@@ -1,0 +1,47 @@
+﻿@model IEnumerable<PharmaceuticalsCompany.Models.ContactUs>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>ShowConact</h2>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CPhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FeedBack)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CPhone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FeedBack)
+                </td>
+                <td>
+                   
+                    <a asp-action="Details" asp-route-id="@item.CId">Details</a> |
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

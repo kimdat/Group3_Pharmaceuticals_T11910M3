@@ -16,6 +16,10 @@ using PharmaceuticalsCompany.Services.Career;
 using PharmaceuticalsCompany.Models.Career;
 using PharmaceuticalsCompany.Services.ManageCareer;
 using PharmaceuticalsCompany.Services.ManageRole;
+using PharmaceuticalsCompany.Services.Contact;
+using PharmaceuticalsCompany.Services.Product;
+using PharmaceuticalsCompany.Services.Tablets;
+
 namespace PharmaceuticalsCompany
 {
     public class Startup
@@ -33,6 +37,10 @@ namespace PharmaceuticalsCompany
             services.AddScoped<IManageRole, ManageRoleImpl>();
             services.AddScoped<IManageCareer, ManageCareerImpl>();
             services.AddScoped<ICareerService, CareerServiceImpl>();
+            services.AddScoped<ICapsules, CapsulesServices>();
+            services.AddScoped<IContact, ContactServices>();
+            services.AddScoped<ITablets, TablestSevices>();
+
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
             services.Configure<CookiePolicyOptions>(options =>

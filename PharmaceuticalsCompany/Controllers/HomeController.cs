@@ -122,13 +122,8 @@ namespace PharmaceuticalsCompany.Controllers
 
             return View();
         }
-        [Route("Contact")]
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
+       
+      
 
         public IActionResult Privacy()
         {

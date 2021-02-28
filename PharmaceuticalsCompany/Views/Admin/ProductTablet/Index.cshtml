@@ -1,0 +1,92 @@
+﻿@model IEnumerable<PharmaceuticalsCompany.Models.Products.ProductTablet>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create" asp-controller="Tablest">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TabName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model_Number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dies)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaxPressure)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaxDiameter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaxDept)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductCapacity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MachineSize)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NetWeight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TabPhoto)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TabName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model_Number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dies)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxPressure)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxDiameter)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxDept)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductCapacity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MachineSize)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NetWeight)
+            </td>
+            <td>
+            <td>
+                <img width="150" src="~/@Url.Content(item.TabPhoto)" />
+            </td>
+            </td>
+            <td>
+                <a asp-action="update" asp-route-id="@item.TabId">Edit</a> |
+                <a asp-action="Detail" asp-route-id="@item.TabId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.TabId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

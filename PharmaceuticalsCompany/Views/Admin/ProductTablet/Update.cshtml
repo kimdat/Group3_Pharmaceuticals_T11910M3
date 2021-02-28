@@ -1,0 +1,78 @@
+﻿@model PharmaceuticalsCompany.Models.Products.ProductTablet
+
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Update</h2>
+
+<h4>ProductTablet</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Update" enctype="multipart/form-data"  method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="TabId" />
+            <div class="form-group">
+                <label asp-for="TabName" class="control-label"></label>
+                <input asp-for="TabName" class="form-control" />
+                <span asp-validation-for="TabName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Model_Number" class="control-label"></label>
+                <input asp-for="Model_Number" class="form-control" />
+                <span asp-validation-for="Model_Number" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dies" class="control-label"></label>
+                <input asp-for="Dies" class="form-control" />
+                <span asp-validation-for="Dies" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaxPressure" class="control-label"></label>
+                <input asp-for="MaxPressure" class="form-control" />
+                <span asp-validation-for="MaxPressure" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaxDiameter" class="control-label"></label>
+                <input asp-for="MaxDiameter" class="form-control" />
+                <span asp-validation-for="MaxDiameter" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaxDept" class="control-label"></label>
+                <input asp-for="MaxDept" class="form-control" />
+                <span asp-validation-for="MaxDept" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductCapacity" class="control-label"></label>
+                <input asp-for="ProductCapacity" class="form-control" />
+                <span asp-validation-for="ProductCapacity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MachineSize" class="control-label"></label>
+                <input asp-for="MachineSize" class="form-control" />
+                <span asp-validation-for="MachineSize" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NetWeight" class="control-label"></label>
+                <input asp-for="NetWeight" class="form-control" />
+                <span asp-validation-for="NetWeight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TabPhoto" class="control-label"></label>
+                <input asp-for="TabPhoto" type="hidden" class="form-control" />
+                <img width="150" src="~/@Url.Content(Model.TabPhoto)" />
+                <input type="file" name="file" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

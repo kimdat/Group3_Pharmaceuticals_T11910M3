@@ -16,8 +16,11 @@ namespace PharmaceuticalsCompany.Models.Products
         public float Ouput { get; set; }
         [Required]
         public float CapSize { get; set; }
+        [Required]
         public float Machine_Dimension { get; set; }
+       
         public float Shipping { get; set; }
+       
         public string photo { get; set; }
     }
 }

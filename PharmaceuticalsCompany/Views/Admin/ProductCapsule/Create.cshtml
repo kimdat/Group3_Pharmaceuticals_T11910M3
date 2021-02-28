@@ -1,0 +1,57 @@
+﻿@model PharmaceuticalsCompany.Models.Products.ProductCapsule
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Create</h2>
+
+<h4>ProductCapsule</h4>
+<hr />
+<div class="container">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CapName" class="control-label"></label>
+                <input asp-for="CapName" class="form-control" />
+                <span asp-validation-for="CapName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ouput" class="control-label"></label>
+                <input asp-for="Ouput" class="form-control" />
+                <span asp-validation-for="Ouput" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CapSize" class="control-label"></label>
+                <input asp-for="CapSize" class="form-control" />
+                <span asp-validation-for="CapSize" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Machine_Dimension" class="control-label"></label>
+                <input asp-for="Machine_Dimension" class="form-control" />
+                <span asp-validation-for="Machine_Dimension" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Shipping" class="control-label"></label>
+                <input asp-for="Shipping" class="form-control" />
+                <span asp-validation-for="Shipping" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="photo" class="control-label"></label>
+                <input type="file" name="file" class="form-control" />
+                <span asp-validation-for="photo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+        @ViewBag.msg
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

@@ -13255,11 +13255,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Group3_Pharmaceuticals_T11910M3\\PharmaceuticalsCompany\\PharmaceuticalsCompany.csproj",
+      "projectUniqueName": "D:\\Group3Doan\\Group3_Pharmaceuticals_T11910M3\\PharmaceuticalsCompany\\PharmaceuticalsCompany.csproj",
       "projectName": "PharmaceuticalsCompany",
-      "projectPath": "D:\\Group3_Pharmaceuticals_T11910M3\\PharmaceuticalsCompany\\PharmaceuticalsCompany.csproj",
+      "projectPath": "D:\\Group3Doan\\Group3_Pharmaceuticals_T11910M3\\PharmaceuticalsCompany\\PharmaceuticalsCompany.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "D:\\Group3_Pharmaceuticals_T11910M3\\PharmaceuticalsCompany\\obj\\",
+      "outputPath": "D:\\Group3Doan\\Group3_Pharmaceuticals_T11910M3\\PharmaceuticalsCompany\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

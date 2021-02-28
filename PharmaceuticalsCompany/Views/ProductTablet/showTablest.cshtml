@@ -1,0 +1,44 @@
+﻿@model IEnumerable<PharmaceuticalsCompany.Models.Products.ProductTablet>
+
+    @{
+    ViewData["Title"] = "showTablest";
+    }
+
+    <link href="~/lightslider.css" rel="stylesheet" type="text/css">
+    <h4>Capsule/ Encapsulation</h4>
+    <section class="slider">
+
+        <div class="container-fluid">
+            <div class="row">
+                @foreach (var item in Model)
+            {
+                <div class="col-md-4">
+                    <div class="box">
+
+                        <div class="slide-img">
+                            <img alt="1" src="@item.TabPhoto  ">
+                            <div class="overlay">
+
+                                <a asp-action="Detail" asp-route-id="@item.TabId" class="buy-btn">Detail</a>
+                                @*  <a asp-action="update" asp-route-id="@item.CapId">Edit</a> |*@
+                               
+                            </div>
+                        </div>
+
+                        <div class="detail-box">
+
+                            <div class="type">
+                                <a href="#">@item.TabName</a>
+                                <span></span>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            }
+            </div>
+        </div>
+
+    </section>
