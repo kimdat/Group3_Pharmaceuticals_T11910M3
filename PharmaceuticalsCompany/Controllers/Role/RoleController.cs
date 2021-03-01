@@ -25,7 +25,7 @@ namespace PharmaceuticalsCompany.Controllers.Role
         public  IActionResult Index(int page=1)
         {
             var list = services.ListRole();
-            var model =  PagingList.Create(list,1,page);
+            var model =  PagingList.Create(list,5,page);
 
        
             if (TempData.ContainsKey("EditRole"))

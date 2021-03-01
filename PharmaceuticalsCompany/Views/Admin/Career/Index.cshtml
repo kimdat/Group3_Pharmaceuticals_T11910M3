@@ -15,7 +15,44 @@
 
 
 <script src="~/js/Kimdat/jquery-3.2.1.min.js"></script>
+<script>
+   
+    function myFunction(x) {
+        var list1 = $("#listuser1");
+
+        var list2 = $("#listuser2");
+        if (x.matches) { // If media query matches
+           
+            list1.attr("hidden", true);
+            list2.removeAttr("hidden");
+
+        } else {
+           
+            list2.attr("hidden", true);
+            list1.removeAttr("hidden");
+        }
+    }
+
+    var x = window.matchMedia("(max-width: 651px)")
+    myFunction(x) // Call listener function at run time
+    $(document).ready(function () {
+        myFunction(x)
+    });
+    x.addListener(myFunction) // Attach listener function on state changes
+</script>
+
 <style>
+   
+
+    #product {
+        table-layout: fixed;
+    }
+
+        #product img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
     .pagination {
         display: inline-block;
         padding-left: 0;
@@ -198,67 +235,72 @@
 </script>
 @if (Model.Any())
 {
-<div class="row">
-    <div class="col-lg-12 col-md-12 col-sm-12 ">
-        <div class="card">
-            <div class="card-body">
-                <table id="product" class="table table-bordered table-hover">
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th> vai trò</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        @foreach (var item in Model)
-                        {
+    <div class="row" id="listuser1" >
+        <div class="col-lg-12 col-md-12 col-sm-12 ">
+            <div class="card">
+                <div class="card-body">
+                    <table id="product" class="table table-bordered table-hover">
+                        <thead>
                             <tr>
-                                <td>@item.FullName</td>
-                                <td>@item.PhoneNumber</td>
-                                <td>@Convert.ToString(string.Format("{0:dd/MM/yyyy}", @item.DateOfBirth))</td>
-
-                                <td>
-                                    <a data-toggle="modal" onclick="sendmail('@item.Email','@item.FullName')" data-target="#myModal" style="color:blue">@item.Email</a>
-                                    @if (!item.EmailConfirmed)
-                                    {
-                                        <p>
-
-                                            (has not been vertified)
-                                        </p>
-                                    }
-                                </td>
-
-                                <td> <img src="/@item.Photo" style="width:100px;height:100px"></td>
-                                <td>
-                                    <a class="btn btn-warning" href="Career/Profile/@item.Id">
-                                        watch Details
-                                    </a>
-                                </td>
+                                <th>FullName</th>
+                                <th>Phone</th>
+                                <th>DOB</th>
+                                <th>Email</th>
+                                <th>Image   </th>
+                                <th>Detail</th>
                             </tr>
-                        }
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.FullName</td>
+                                    <td>@item.PhoneNumber</td>
+                                    <td>@Convert.ToString(string.Format("{0:dd/MM/yyyy}", @item.DateOfBirth))</td>
+
+                                    <td>
+                                        <a data-toggle="modal" onclick="sendmail('@item.Email','@item.FullName')" data-target="#myModal" style="color:blue">@item.Email</a>
+                                        @if (!item.EmailConfirmed)
+                                        {
+                                            <p>
+
+                                                (has not been vertified)
+                                            </p>
+                                        }
+                                    </td>
+
+                                    <td> <img src="/@item.Photo"></td>
+                                    <td>
+                                        <a class="btn btn-warning" href="Career/Profile/@item.Id">
+                                            watch Details
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
 
 
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>Id</th>
-                            <th> vai trò</th>
-                            <th></th>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>FullName</th>
+                                <th>Phone</th>
+                                <th>DOB</th>
+                                <th>Email</th>
+                                <th>Image   </th>
+                                <th >Detail  </th>
+                            </tr>
 
-                        </tr>
+                        </tfoot>
 
-                    </tfoot>
-
-                </table>
-                <nav aria-label="Suppliers navigation example" style="float:right">
-                    @await this.Component.InvokeAsync("Pager", new { pagingList = this.Model })
-                </nav>
+                    </table>
+                    <nav aria-label="Suppliers navigation example" style="float:right">
+                        @await this.Component.InvokeAsync("Pager", new { pagingList = this.Model })
+                    </nav>
+                </div>
             </div>
         </div>
     </div>
-</div>
 }
 @if (Model.Any())
 {
@@ -266,7 +308,7 @@
 
 
 
-    <div class="card">
+    <div class="card " id="listuser2" hidden >
 
 
         <div class="card-header">
@@ -294,7 +336,7 @@
 
                                     <div class="row">
                                         <div class="col-lg-4">
-                                            <label style="font-size:28px">@item.FullName</label>
+                                            <label style="font-size:28px">FullName:@item.FullName</label>
 
 
                                             <br />
@@ -310,14 +352,7 @@
 
                                             Date Of Birth: @Convert.ToString(string.Format("{0:dd/MM/yyyy}", @item.DateOfBirth))
                                             <br />
-                                            @if (item.Gender == true)
-                                            {
-                                                <label>Gender:Male</label> <br />
-                                            }
-                                            else
-                                            {
-                                                <label>   Gender: Female</label> <br />
-                                            }
+
 
                                             @if (item.EmailConfirmed)
                                             {

@@ -29,7 +29,7 @@ namespace PharmaceuticalsCompany.Controllers.Career
         {
           
             var users = services.GetAllUser();
-            var model = PagingList.Create(users, 1, page);
+            var model = PagingList.Create(users, 5, page);
             return View("~/Views/Admin/Career/Index.cshtml",model);
         }
      
