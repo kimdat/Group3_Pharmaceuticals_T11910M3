@@ -174,18 +174,17 @@
 
                                     </div>
 
-                                    <div class="form-group">
+                                    <div class="form-group" >
                                         <i class="fas fa-file"></i>
                                         <label>Photo:</label>
                                         <div class="photo" style="margin-bottom:20px">
                                             <label class="custom-file-upload">
-                                                <input type="file" name="fileUser" onclick="fileClicked(event)" onchange="fileChangedPhoto(event,this)" style="display: none"/>
-                                                       Drap and drop or select your image
-                                                <br />
-                                                <div style="border:1px solid;width:200px;height:100px">
+                                                Drap and drop or select your image
+                                                <input type="file" name="fileUser" onclick="fileClicked(event)" onchange="fileChangedPhoto(event,this)" style="display: none" />
 
-                                                    <img style="width:100%;height:100%" id="blah" />
-                                                </div>
+                                                <br />
+                                                <img style="width:200px;height:200px" id="blah" />
+
                                             </label>
                                         </div>
                                         <span class="errorImage" style="color:red" />
