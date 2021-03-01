@@ -12,6 +12,7 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+<div id="log" hidden></div>
 <style>
     .error {
         color: red;
@@ -36,7 +37,7 @@
   
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="~/js/Kimdat/AjaxCareerAuthentication1.js">
+<script src="~/js/Kimdat/AjaxCareerAuthentication2.js">
 
 </script>
 <stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -178,9 +179,8 @@
                                         <label>Photo:</label>
                                         <div class="photo" style="margin-bottom:20px">
                                             <label class="custom-file-upload">
-                                                <input type="file" name="fileUser" style="display:none">
-
-                                                Drap and drop or select your image
+                                                <input type="file" name="fileUser" onclick="fileClicked(event)" onchange="fileChangedPhoto(event,this)" style="display: none"/>
+                                                       Drap and drop or select your image
                                                 <br />
                                                 <div style="border:1px solid;width:200px;height:100px">
 
@@ -269,7 +269,7 @@
 
                                                     <img src="https://100dayscss.com/codepen/upload.svg" class="upload">
                                                     <span class="filename"></span>
-                                                    <input type="file" name="file" class="input">
+                                                    <input type="file" name="file" class="input" onclick="fileClicked(event)" onchange="fileChangedResume(event)">
 
                                                 </div>
                                             </div>
@@ -384,7 +384,7 @@
         document.getElementById("defaultOpen").click();
     </script>
 
-    <script src="~/js/Kimdat/Career3.js">
+    <script src="~/js/Kimdat/Career4.js">
 
     </script>
     <button type="button" class="btn btn-primary modalValid" data-toggle="modal" data-target="#ModalValid" hidden>

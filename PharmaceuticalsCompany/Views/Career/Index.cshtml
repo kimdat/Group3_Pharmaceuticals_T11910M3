@@ -39,6 +39,7 @@
         font-weight: bold;
     }
 </style>
+<div id="log" hidden></div>
 <div class="bg-contact2">
 
     <div class="container-contact2">
@@ -67,26 +68,41 @@
                     {
                         <div class="p-3 mb-2 bg-info text-white  successUpdate">@ViewBag.Update</div>
                     }
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="">
+                                    <label> Email:</label>
 
+                                    <input readonly class="input1" type="email" value="@Model.Email" name="Email">
+                                    <span class="focus-input2"></span>
+                                </div>
+                                <div class="wrap-input2 validate-input" data-validate="Full Name is required && must have from 6 to 50 character 
+                                     && must be valid(only alpha characters and space)">
+                                    <label>FullName:</label>
+                                    <input class="input2" type="text" value="@Model.FullName" name="FullName">
+                                    <span class="focus-input2"></span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <input type="hidden" value="@Model.Photo" name="Photo">
+                                <input readonly type="hidden" name="Id" value="@Model.Id">
+                                <div >
 
-                    <input type="hidden" value="@Model.Photo" name="Photo">
-                    <input readonly type="hidden" name="Id" value="@Model.Id">
-                    <img src="/@Model.Photo" width="200" height="100" />
-                    <div class="">
-                        <label> Email:</label>
+                                    <label>
+                                        <img src="/@Model.Photo" width="200" height="100" id="blah" />
+                                        <input type="file" name="fileUser" onclick="fileClicked(event)" onchange="fileChangedPhoto(event,this)" style="display: none">
+                                    </label>
+                                    <br />
+                                    <label class="btn btn-dark" style="margin-top:10px;width:200px">
+                                        Choose Image   <input type="file" name="fileUser" onclick="fileClicked(event)" onchange="fileChangedPhoto(event,this)" style="display: none">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
 
-                        <input readonly class="input1" type="email" value="@Model.Email" name="Email">
-                        <span class="focus-input2"></span>
-
-
-                    </div>
-
-
-                    <div class="wrap-input2 validate-input" data-validate="Full Name is required && must have from 6 to 50 character">
-                        <label>FullName:</label>
-                        <input class="input2" type="text" value="@Model.FullName" name="FullName">
-                        <span class="focus-input2"></span>
-                    </div>
+                 
+                   
+                  
                     <div class="wrap-input2 validate-input" data-validate="Addres is required">
                         <label> Address:</label>
                         <input class="input2" type="text" value="@Model.Address" name="Address">
@@ -97,7 +113,6 @@
                         <input class="input2" type="text" value="@Model.Phone" name="Phone">
                         <span class="focus-input2"></span>
                     </div>
-
                     <div class="">
                         <label>DateOfBirth:</label>
                         <input type="hidden" value="@Model.DateOfBirth" name="DateOfBirth">
@@ -105,6 +120,7 @@
 
                         <span class="focus-input2"></span>
                     </div>
+
                     <div class="">
                         <label>Gender:</label>
                         <input type="hidden" value="" name="Gender" />
@@ -143,26 +159,9 @@
 
 
                     </div>
-                    <div data-validate="Valid email is required: ex@abc.xyz">
-                        <div class="checkbox">
-                            <label><input type="checkbox" value="" name="checkbox"><b>Change Your Photo</b></label>
-                        </div>
-                        <div class="hidden photo" style="margin-bottom:20px">
-                            <label class="custom-file-upload">
-                                <input type="file" name="fileUser" style="display:none">
 
-                                Drap and drop or select your image
-                                <br />
-
-
-
-                                <div style="border:1px solid;width:500px;height:500px">
-
-                                    <img style="width:100%;height:100%" id="blah" />
-                                </div>
-                            </label>
-                        </div>
-                    </div>
+                    
+                    
                     <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Change password</button>
 
                     <!-- Modal -->
@@ -317,7 +316,7 @@
                                     <img src="https://100dayscss.com/codepen/upload.svg" class="upload">
                                     <span class="filename"></span>
 
-                                    <input type="file" name="file" class="input">
+                                    <input type="file" name="file" class="input" onclick="fileClicked(event)" onchange="fileChangedResume(event)">
                                 </div>
                             </div>
                             <img src="https://100dayscss.com/codepen/syncing.svg" class="syncing">
@@ -402,11 +401,28 @@
 
     </div>
 </div>
+<div class="wait">
+    <div class="wrapper">
+        <div class="inner">
+            <span>P</span>
+            <span>L</span>
+            <span>E</span>
+            <span>A</span>
+            <span>S</span>
+            <span>E</span>
+            <span>w</span>
+            <span>A</span>
+            <span>I</span>
+            <span>T</span>
+
+        </div>
+    </div>
+</div>
 <script src="~/js/Kimdat/jquery-3.2.1.min.js"></script>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-<script src="~/js/Kimdat/Career3.js">
+<script src="~/js/Kimdat/Career4.js">
 
 
 </script>
@@ -538,20 +554,7 @@
         $(".wait").show();
     }
 </script>
-<div class="wait">
-    <div class="wrapper">
-        <div class="inner">
-            <span>P</span>
-            <span>L</span>
-            <span>E</span>
-            <span>A</span>
-            <span>S</span>
-            <span>E</span>
-            <span>w</span>
-            <span>A</span>
-            <span>I</span>
-            <span>T</span>
+<script>
+    //This is All Just For Logging:
 
-        </div>
-    </div>
-</div>
+</script>

@@ -66,7 +66,9 @@ namespace PharmaceuticalsCompany
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.Configure<DataProtectionTokenProviderOptions>(o => o.TokenLifespan = TimeSpan.FromMinutes(30));
-            services.Configure<CustomEmailConfirmationTokenProvierOptions>(o => o.TokenLifespan = TimeSpan.MaxValue);
+
+            services.Configure<CustomEmailConfirmationTokenProvierOptions>(o => o.TokenLifespan=TimeSpan
+            .FromDays(36500));
             services.ConfigureApplicationCookie(options => options.LoginPath = "/Admin/Login");
             services.ConfigureApplicationCookie(options => options.AccessDeniedPath = new PathString("/Admin/AccessDenied"));
         }

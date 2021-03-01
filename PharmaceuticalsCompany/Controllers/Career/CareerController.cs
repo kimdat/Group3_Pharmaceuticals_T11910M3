@@ -340,7 +340,7 @@ namespace PharmaceuticalsCompany.Controllers.Candidate
 
             else
             {
-                ViewBag.Msg = "Email or token invalid or token has been expired";
+                ViewBag.Msg = "Email or token invalid or token has been expired ";
              
             }
            
