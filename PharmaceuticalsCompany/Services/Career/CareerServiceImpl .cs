@@ -276,6 +276,7 @@ namespace PharmaceuticalsCompany.Services.Career
             if (user == null)
                 return false;
             var result = await _um.ConfirmEmailAsync(user, token);
+            
             if (result.Succeeded)
             {
                 await _sm.SignInAsync(user,false);

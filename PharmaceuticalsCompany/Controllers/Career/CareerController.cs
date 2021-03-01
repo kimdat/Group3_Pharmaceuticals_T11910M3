@@ -587,7 +587,7 @@ namespace PharmaceuticalsCompany.Controllers.Candidate
                     BodyBuilder bodyBuilder = new BodyBuilder();
                     bodyBuilder.HtmlBody = "Hello You!please " +
                     $"<a href=\"{passWordResetLink}\"> click here </a>" +
-                   "to reset your password!Happy good day!";
+                   "to reset your password!The link is valid for 30 minutes only!Happy good day!";
 
                     bodyBuilder.TextBody = "Hello World!";
                     message.Body = bodyBuilder.ToMessageBody();

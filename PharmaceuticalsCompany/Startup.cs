@@ -20,7 +20,7 @@ using PharmaceuticalsCompany.Services.Contact;
 using PharmaceuticalsCompany.Services.Product;
 using PharmaceuticalsCompany.Services.Tablets;
 using ReflectionIT.Mvc.Paging;
-
+using PharmaceuticalsCompany.Security;
 namespace PharmaceuticalsCompany
 {
     public class Startup
@@ -42,8 +42,14 @@ namespace PharmaceuticalsCompany
             services.AddScoped<IContact, ContactServices>();
             services.AddScoped<ITablets, TablestSevices>();
 
-            services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddDefaultTokenProviders();
+            services.AddIdentity<ApplicationUser, IdentityRole>(options=>
+            {
+                options.Tokens.EmailConfirmationTokenProvider = "CustomEmailConfirmation";
+
+            })
+            .AddEntityFrameworkStores<ApplicationDbContext>()
+            .AddDefaultTokenProviders().AddTokenProvider<CustomEmailConfirmationTokenProvider
+            <ApplicationUser>> ("CustomEmailConfirmation");
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
@@ -56,9 +62,11 @@ namespace PharmaceuticalsCompany
                     Configuration.GetConnectionString("DefaultConnection")));
             
             services.AddSession();
-          
+            
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-          
+
+            services.Configure<DataProtectionTokenProviderOptions>(o => o.TokenLifespan = TimeSpan.FromMinutes(30));
+            services.Configure<CustomEmailConfirmationTokenProvierOptions>(o => o.TokenLifespan = TimeSpan.MaxValue);
             services.ConfigureApplicationCookie(options => options.LoginPath = "/Admin/Login");
             services.ConfigureApplicationCookie(options => options.AccessDeniedPath = new PathString("/Admin/AccessDenied"));
         }
