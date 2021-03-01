@@ -679,7 +679,7 @@ namespace PharmaceuticalsCompany.Controllers.Candidate
            
          //   return Redirect(returnUrl);
         }
-           
+       
     }
 
 }
