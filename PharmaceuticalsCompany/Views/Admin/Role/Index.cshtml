@@ -9,7 +9,9 @@
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
+
 <style>
+ 
     .pagination {
         display: inline-block;
         padding-left: 0;
@@ -119,14 +121,12 @@
         border-top-right-radius: 3px;
         border-bottom-right-radius: 3px;
     }
-   
-      
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
 
     $(document).ready(function () {
-       
+
         $(".paging li").addClass("hidden");
     });
 
@@ -137,12 +137,26 @@
 <div class="container-fluid">
     @if (ViewBag.EditRole != null)
     {
-        <div class="p-3 mb-2 bg-info text-white " style="text-align:center">@ViewBag.EditRole</div>
+        <div class="alert alert-success alert-dismissible fadeAlert in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Success!</strong> @ViewBag.EditRole
+        </div>
+
     }
     @if (ViewBag.Error != null)
     {
-        <div class="p-3 mb-2 bg-danger text-white " style="text-align:center">@ViewBag.Error</div>
+
+        <div class="alert alert-danger alert-dismissible fadeAlert in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Fail!</strong> @ViewBag.Error
+        </div>
+
+
+
+
     }
+
+
     <div class="row editRole ">
         <div class="col-lg-12">
             <!-- general form elements -->
@@ -162,23 +176,23 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-                        <tr>
-                            <td>
-                                @item.Id
-                            </td>
-                            <td>
-                                @item.Name
-                            </td>
-                           
-                            <td>
-                                <a class="btn btn-primary" href="Role/Edit/@item.Id">Edit </a>
-                                |
+                            <tr>
+                                <td>
+                                    @item.Id
+                                </td>
+                                <td>
+                                    @item.Name
+                                </td>
+
+                                <td>
+                                    <a class="btn btn-primary" href="Role/Edit/@item.Id">Edit </a>
+                                    |
 
 
-                                <button data-toggle="modal" onclick="deletefunction('@item.Id')" data-target="#myModalDelete" class="btn btn-danger">Delete </button>
+                                    <button data-toggle="modal" onclick="deletefunction('@item.Id')" data-target="#myModalDelete" class="btn btn-danger">Delete </button>
 
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
                         }
                     </tbody>
                     <tfoot>
@@ -192,7 +206,7 @@
 
                 </table>
                 <div>
-                    <nav aria-label="Suppliers navigation example"  style="float:right">
+                    <nav aria-label="Suppliers navigation example" style="float:right">
                         @await this.Component.InvokeAsync("Pager", new { pagingList = this.Model })
                     </nav>
                 </div>

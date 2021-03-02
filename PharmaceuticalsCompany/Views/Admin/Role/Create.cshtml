@@ -4,12 +4,18 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
+
 <h4>CreateRoleViewModel</h4>
 <hr />
+
 <div class="container-fluid">
     @if (ViewBag.RoleExist != null)
     {
-        <div class="p-3 mb-2 bg-danger text-white  " style="text-align:center">@ViewBag.RoleExist</div>
+        <div class="alert alert-danger alert-dismissible fadeAlert in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Fail!</strong> @ViewBag.RoleExist
+        </div>
+      
     }
     <div class="row">
         <div class="offset-md-3 col-md-6">

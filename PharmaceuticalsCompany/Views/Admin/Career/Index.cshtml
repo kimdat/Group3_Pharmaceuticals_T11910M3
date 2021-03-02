@@ -260,11 +260,16 @@
                                     <td>@Convert.ToString(string.Format("{0:dd/MM/yyyy}", @item.DateOfBirth))</td>
 
                                     <td>
-                                        <a data-toggle="modal" onclick="sendmail('@item.Email','@item.FullName')" data-target="#myModal" style="color:blue">@item.Email</a>
-                                        @if (!item.EmailConfirmed)
-                                        {
-                                            <p>
 
+                                        @if (item.EmailConfirmed)
+                                        {
+                                            <p>  Email: <a data-toggle="modal" onclick="sendmail('@item.Email','@item.FullName')" data-target="#myModal" style="color:blue">@item.Email</a></p>
+
+                                        }
+                                        else
+                                        {
+                                            <p style="  white-space: normal;">
+                                                Email:@item.Email
                                                 (has not been vertified)
                                             </p>
                                         }

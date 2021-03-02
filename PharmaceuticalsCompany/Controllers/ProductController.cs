@@ -68,7 +68,7 @@ namespace PharmaceuticalsCompany.Controllers
             {
                 ViewBag.Msg = e.Message;
             }
-            return View();
+            return View("~/Views/Admin/ProductCapsule/Create.cshtml");
 
         }
         [Route("/Admin/ProductCapsule/Update/{id}")]
@@ -125,7 +125,7 @@ namespace PharmaceuticalsCompany.Controllers
 
                 ViewBag.Msg = e.Message;
             }
-            return View("~/Views/Admin/ProductCapsule/Update.cshtml");
+            return View("~/Views/Admin/ProductCapsule/update.cshtml", capsules.GetProductCapsule(capsule.CapId));
         }
         [Route("/Admin/ProductCapsule/Delete/{id}")]
         [HttpGet]

@@ -133,7 +133,7 @@ using PharmaceuticalsCompany.Models;
             WriteLiteral("\r\n                </td>\r\n                <td>\r\n                   \r\n                    ");
             EndContext();
             BeginContext(1051, 60, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "694bc655ef7e46c69d85e5debe0b3f53", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c5ef27e22eb044a6996478842dff6ec9", async() => {
                 BeginContext(1100, 7, true);
                 WriteLiteral("Details");
                 EndContext();

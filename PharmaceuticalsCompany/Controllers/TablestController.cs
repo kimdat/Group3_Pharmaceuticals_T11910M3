@@ -63,8 +63,7 @@ namespace PharmaceuticalsCompany.Controllers
             {
                 ViewBag.Msg = e.Message;
             }
-            return View();
-
+            return View("~/Views/Admin/ProductTablet/Create.cshtml");
 
         }
         [Route("/Admin/ProductTablet/Update/{id}")]
@@ -118,7 +117,7 @@ namespace PharmaceuticalsCompany.Controllers
             {
                 ViewBag.Msg = e.Message;
             }
-            return View();
+            return View("~/Views/Admin/ProductTablet/Update.cshtml", tablets.GetProductTablets(tablet.TabId));
 
 
         }

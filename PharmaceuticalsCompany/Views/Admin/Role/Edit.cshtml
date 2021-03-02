@@ -19,44 +19,55 @@
 <div class="container-fluid">
     @if (ViewBag.EditUserInRole != null)
     {
-        <div class="p-3 mb-2 bg-info text-white " style="text-align:center">@ViewBag.EditUserInRole</div>
+        <div class="alert alert-success alert-dismissible fadeAlert in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Sucess!</strong> @ViewBag.EditUserInRole
+        </div>
+       
     }
     @if (ViewBag.RoleExist != null)
-    {
-        <div class="p-3 mb-2 bg-danger text-white  " style="text-align:center">@ViewBag.RoleExist</div>
+     {
+       
+      <div class="alert alert-danger alert-dismissible fadeAlert in">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Fail!</strong> @ViewBag.RoleExist
+            </div>
+
+
+
 
     }
-    <div class="row">
-        <div class="offset-md-3 col-md-6">
-            <!-- general form elements -->
-            <div class="card card-primary">
-                <div class="card-header">
-                    <h3 class="card-title">Edit Role</h3>
-                </div>
-                <form asp-action="EditRole" asp-controller="Role" method="post">
-                    <div class="card-body">
-                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                        <input asp-for="Id" type="hidden" class="form-control" />
-
-                        <div class="form-group">
-                            <label asp-for="RoleName" class="control-label"></label>
-                            <input asp-for="RoleName" class="form-control" />
-                            <span asp-validation-for="RoleName" class="text-danger"></span>
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" value="Edit" class="btn  btn-primary" style="float:right" />
-                            <div class="clearfix" />
-                        </div>
+        <div class="row">
+            <div class="offset-md-3 col-md-6">
+                <!-- general form elements -->
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Edit Role</h3>
                     </div>
-                    <!-- /.card-body -->
+                    <form asp-action="EditRole" asp-controller="Role" method="post">
+                        <div class="card-body">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input asp-for="Id" type="hidden" class="form-control" />
+
+                            <div class="form-group">
+                                <label asp-for="RoleName" class="control-label"></label>
+                                <input asp-for="RoleName" class="form-control" />
+                                <span asp-validation-for="RoleName" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Edit" class="btn  btn-primary" style="float:right" />
+                                <div class="clearfix" />
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
 
 
-                </form>
+                    </form>
 
+                </div>
             </div>
         </div>
     </div>
-</div>
 <div class="container-fluid" style="margin-top:30px">
     <div class="row">
         <div class="offset-md-3 col-md-6">
