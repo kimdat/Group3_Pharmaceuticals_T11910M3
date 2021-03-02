@@ -13,36 +13,8 @@
     int count = 1;
 }
 
-
-<script src="~/js/Kimdat/jquery-3.2.1.min.js"></script>
-<script>
-   
-    function myFunction(x) {
-        var list1 = $("#listuser1");
-
-        var list2 = $("#listuser2");
-        if (x.matches) { // If media query matches
-           
-            list1.attr("hidden", true);
-            list2.removeAttr("hidden");
-
-        } else {
-           
-            list2.attr("hidden", true);
-            list1.removeAttr("hidden");
-        }
-    }
-
-    var x = window.matchMedia("(max-width: 651px)")
-    myFunction(x) // Call listener function at run time
-    $(document).ready(function () {
-        myFunction(x)
-    });
-    x.addListener(myFunction) // Attach listener function on state changes
-</script>
-
 <style>
-   
+
 
     #product {
         table-layout: fixed;
@@ -173,8 +145,39 @@
         animation: spin 2s linear infinite;
     }
 </style>
+<script src="~/js/Kimdat/jquery-3.2.1.min.js"></script>
+<script>
+ 
+    function myFunction(x) {
+        var list1 = $("#listuser1");
+      
+        var list2 = $("#listuser2");
+        if (x.matches) { // If media query matches
+           
+            list1.attr("hidden", true);
+            list2.removeAttr("hidden");
+
+        } else {
+           
+            list2.attr("hidden", true);
+            list1.removeAttr("hidden");
+        }
+    }
+    
+
+    var x = window.matchMedia("(max-width: 651px)")
+    myFunction(x) // Call listener function at run time
+    $(document).ready(function () {
+        myFunction(x)
+    });
+    x.addListener(myFunction) // Attach listener function on state changes
+   
+</script>
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
+   
     $(document).ready(function () {
 
         $("#sendmail").submit(function (e) {

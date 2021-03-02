@@ -81,7 +81,7 @@ using PharmaceuticalsCompany.Models;
             WriteLiteral("<script src=\'https://kit.fontawesome.com/a076d05399.js\'></script>\r\n\r\n\r\n\r\n");
             EndContext();
             BeginContext(173, 85, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "836344ddb65845f190e08bf6c36f129f", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "79aeaab64876409395702ce8a44a0ef1", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -101,7 +101,7 @@ using PharmaceuticalsCompany.Models;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(260, 76, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "c25c563b3f7c42efad62171e1851d0e2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "df0d613d17b84d9bba42c60bd7ea2e1a", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -160,7 +160,7 @@ using PharmaceuticalsCompany.Models;
 ");
             EndContext();
             BeginContext(913, 68, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "62a02516da2e433d918103f45fea3079", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3cabaf550a1a47148d17baaf3f610df7", async() => {
                 BeginContext(968, 4, true);
                 WriteLiteral("\r\n\r\n");
                 EndContext();
@@ -188,7 +188,7 @@ using PharmaceuticalsCompany.Models;
                 ");
             EndContext();
             BeginContext(1391, 54, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "8f974ab2db2c4a608149c6a684abd38d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "54489b2bca0f41ec9420ff3e373af968", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -260,7 +260,7 @@ using PharmaceuticalsCompany.Models;
             WriteLiteral("                </div>\r\n\r\n\r\n\r\n\r\n                <div class=\"tabcontent\" id=\"sign-in\">\r\n                    ");
             EndContext();
             BeginContext(3601, 12839, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e9f25be9f59b4c81a7aca4a0fa63130a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3a92d38d08884d348f936b0d0a07d758", async() => {
                 BeginContext(3720, 12713, true);
                 WriteLiteral(@"
 
@@ -599,7 +599,7 @@ using PharmaceuticalsCompany.Models;
     ");
             EndContext();
             BeginContext(20215, 54, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "18dd86011dc3431297bfa8594b1cbbb8", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3c813d9906e2453e8b1a14ab46abb201", async() => {
                 BeginContext(20252, 8, true);
                 WriteLiteral("\r\n\r\n    ");
                 EndContext();
@@ -653,7 +653,7 @@ using PharmaceuticalsCompany.Models;
                 ");
             EndContext();
             BeginContext(21571, 655, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4c675e68f30340699876012ea7157de7", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "08df5234b03a4498b9cf7b981638db9d", async() => {
                 BeginContext(21659, 560, true);
                 WriteLiteral(@"
                     <div class=""modal-body forgot"">

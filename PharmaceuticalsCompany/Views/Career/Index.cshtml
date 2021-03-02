@@ -65,44 +65,47 @@
                 <form class="contact2-form validate-form" onsubmit="return ValidationPersonal()" method="post" id="updatePersonal" asp-controller="Career" asp-action="EditProfile" enctype="multipart/form-data">
 
                     @if (@ViewBag.Update != null)
-                    {
-                        <div class="p-3 mb-2 bg-info text-white  successUpdate">@ViewBag.Update</div>
+                    {<div class="alert alert-success alert-dismissible fadeAlert in">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Sucess!</strong> @ViewBag.Update
+                        </div>
+                     
                     }
-                        <div class="row">
-                            <div class="col-lg-8">
-                                <div class="">
-                                    <label> Email:</label>
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="">
+                                <label> Email:</label>
 
-                                    <input readonly class="input1" type="email" value="@Model.Email" name="Email">
-                                    <span class="focus-input2"></span>
-                                </div>
-                                <div class="wrap-input2 validate-input" data-validate="Full Name is required && must have from 6 to 50 character 
-                                     && must be valid(only alpha characters and space)">
-                                    <label>FullName:</label>
-                                    <input class="input2" type="text" value="@Model.FullName" name="FullName">
-                                    <span class="focus-input2"></span>
-                                </div>
+                                <input readonly class="input1" type="email" value="@Model.Email" name="Email">
+                                <span class="focus-input2"></span>
                             </div>
-                            <div class="col-lg-4">
-                                <input type="hidden" value="@Model.Photo" name="Photo">
-                                <input readonly type="hidden" name="Id" value="@Model.Id">
-                                <div >
-
-                                    <label>
-                                        <img src="/@Model.Photo" width="200" height="100" id="blah" />
-                                        <input type="file" name="fileUser" onclick="fileClicked(event)" onchange="fileChangedPhoto(event,this)" style="display: none">
-                                    </label>
-                                    <br />
-                                    <label class="btn btn-dark" style="margin-top:10px;width:200px">
-                                        Choose Image   <input type="file" name="fileUser" onclick="fileClicked(event)" onchange="fileChangedPhoto(event,this)" style="display: none">
-                                    </label>
-                                </div>
+                            <div class="wrap-input2 validate-input" data-validate="Full Name is required && must have from 6 to 50 character
+                                     && must be valid(only alpha characters and space)">
+                                <label>FullName:</label>
+                                <input class="input2" type="text" value="@Model.FullName" name="FullName">
+                                <span class="focus-input2"></span>
                             </div>
                         </div>
+                        <div class="col-lg-4">
+                            <input type="hidden" value="@Model.Photo" name="Photo">
+                            <input readonly type="hidden" name="Id" value="@Model.Id">
+                            <div>
 
-                 
-                   
-                  
+                                <label>
+                                    <img src="/@Model.Photo" width="200" height="100" id="blah" />
+                                    <input type="file" name="fileUser" onclick="fileClicked(event)" onchange="fileChangedPhoto(event,this)" style="display: none">
+                                </label>
+                                <br />
+                                <label class="btn btn-dark" style="margin-top:10px;width:200px">
+                                    Choose Image   <input type="file" name="fileUser" onclick="fileClicked(event)" onchange="fileChangedPhoto(event,this)" style="display: none">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
                     <div class="wrap-input2 validate-input" data-validate="Addres is required">
                         <label> Address:</label>
                         <input class="input2" type="text" value="@Model.Address" name="Address">
@@ -160,8 +163,8 @@
 
                     </div>
 
-                    
-                    
+
+
                     <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Change password</button>
 
                     <!-- Modal -->
