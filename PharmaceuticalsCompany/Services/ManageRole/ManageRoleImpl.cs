@@ -176,18 +176,20 @@ namespace PharmaceuticalsCompany.Services.ManageRole
             foreach (var user in userManager.Users)
             {
                 bool flag = false;
-                foreach (var item in context.UserRoles)
+                if(roleAdmin!=null)
                 {
-
-                    if (item.RoleId == roleAdmin.Id  && item.UserId==user.Id)
+                    foreach (var item in context.UserRoles)
                     {
-                        flag = true;
-                        break;
 
+                        if (item.RoleId == roleAdmin.Id && item.UserId == user.Id)
+                        {
+                            flag = true;
+                            break;
+
+                        }
                     }
-
-
                 }
+               
                if(flag==false)
                 {
                     var userRoleViewModel = new UserRoleViewModel

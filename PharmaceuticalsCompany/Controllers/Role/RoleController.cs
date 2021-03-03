@@ -10,7 +10,7 @@ using ReflectionIT.Mvc.Paging;
 
 namespace PharmaceuticalsCompany.Controllers.Role
 {
- [Authorize(Roles = "Admin")]
+     [Authorize(Roles = "Admin")]
     public class RoleController : Controller
     {
         private IManageRole services;
