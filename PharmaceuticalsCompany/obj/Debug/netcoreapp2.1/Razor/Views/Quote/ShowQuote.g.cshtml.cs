@@ -67,7 +67,7 @@ using PharmaceuticalsCompany.Models;
             WriteLiteral("\r\n\r\n<h2>Show Quote</h2>\r\n\r\n<p>\r\n    ");
             EndContext();
             BeginContext(194, 37, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d20f2c54e0d34817a2658e6091f261e1", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "80044a6be0094682a4062f96082bc67e", async() => {
                 BeginContext(217, 10, true);
                 WriteLiteral("Create New");
                 EndContext();
@@ -258,7 +258,7 @@ using PharmaceuticalsCompany.Models;
             WriteLiteral("\r\n                </td>\r\n                <td>\r\n                    ");
             EndContext();
             BeginContext(2133, 53, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "82824a7ca7bd4e05983e485b41ef07c0", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f1025d9a0dab42d0b9cd88311b716a7c", async() => {
                 BeginContext(2178, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -293,7 +293,7 @@ using PharmaceuticalsCompany.Models;
             WriteLiteral(" |\r\n                    ");
             EndContext();
             BeginContext(2210, 59, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8f20c6a4ce8d4a1a840b6c15b46aa1e0", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e5dfc089e2f04e5fa57550325d3d2a87", async() => {
                 BeginContext(2258, 7, true);
                 WriteLiteral("Details");
                 EndContext();
@@ -328,7 +328,7 @@ using PharmaceuticalsCompany.Models;
             WriteLiteral(" |\r\n                    ");
             EndContext();
             BeginContext(2293, 57, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3e2eab07455f44649c816f55305387c2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5de310650f08475b8f44816fc2055735", async() => {
                 BeginContext(2340, 6, true);
                 WriteLiteral("Delete");
                 EndContext();

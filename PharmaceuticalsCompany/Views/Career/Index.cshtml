@@ -5,7 +5,7 @@
 }
 @using Microsoft.AspNetCore.Identity
 
-<link rel="stylesheet" type="text/css" href="~/css/KimDat/CareerProfile.css">
+<link rel="stylesheet" type="text/css" href="~/css/KimDat/CareerProfile1.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="~/css/KimDat/css-loader.css" />
 <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
@@ -90,15 +90,21 @@
                             <input type="hidden" value="@Model.Photo" name="Photo">
                             <input readonly type="hidden" name="Id" value="@Model.Id">
                             <div>
+                                <div class="dropzonePhoto">
 
-                                <label>
+
                                     <img src="/@Model.Photo" width="200" height="100" id="blah" />
-                                    <input type="file" name="fileUser" onclick="fileClicked(event)" onchange="fileChangedPhoto(event,this)" style="display: none">
-                                </label>
+                                    <input type="file" name="fileUser" class="input" onclick="fileClicked(event)" onchange="fileChangedPhoto(event,this)">
+
+                                </div>
                                 <br />
-                                <label class="btn btn-dark" style="margin-top:10px;width:200px">
+                                <label class="btn btn-dark" style="width:200px">
                                     Choose Image   <input type="file" name="fileUser" onclick="fileClicked(event)" onchange="fileChangedPhoto(event,this)" style="display: none">
                                 </label>
+
+
+
+
                             </div>
                         </div>
                     </div>
@@ -425,7 +431,7 @@
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-<script src="~/js/Kimdat/Career6.js"></script>
+<script src="~/js/Kimdat/Career7.js"></script>
 <script>
     $("input[type = 'password']").keyup(function () {
 

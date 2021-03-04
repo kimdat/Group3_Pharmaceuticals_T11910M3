@@ -7,7 +7,7 @@
 
 
 
-<link rel="stylesheet" type="text/css" href="~/css/KimDat/CareerRegisterLogin.css" />
+<link rel="stylesheet" type="text/css" href="~/css/KimDat/CareerRegisterLogin1.css" />
 <link rel="stylesheet" type="text/css" href="~/css/KimDat/css-loader.css" />
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
@@ -178,14 +178,15 @@
                                         <i class="fas fa-file"></i>
                                         <label>Photo:</label>
                                         <div class="photo" style="margin-bottom:20px">
-                                            <label class="custom-file-upload">
-                                                Drap and drop or select your image
-                                                <input type="file" name="fileUser" onclick="fileClicked(event)" onchange="fileChangedPhoto(event,this)" style="display: none" />
+                                            Drap and drop or select your image
+                                            <div class="dropzonePhoto">
 
-                                                <br />
-                                                <img style="width:200px;height:200px" id="blah" />
 
-                                            </label>
+                                                <img width="200" height="100" id="blah" />
+                                                <input type="file" name="fileUser" class="input" onclick="fileClicked(event)" onchange="fileChangedPhoto(event,this)">
+
+                                            </div>
+                                            
                                         </div>
                                         <span class="errorImage" style="color:red" />
                                     </div>
@@ -383,7 +384,7 @@
         document.getElementById("defaultOpen").click();
     </script>
 
-    <script src="~/js/Kimdat/Career6.js">
+    <script src="~/js/Kimdat/Career7.js">
 
     </script>
     <button type="button" class="btn btn-primary modalValid" data-toggle="modal" data-target="#ModalValid" hidden>
