@@ -1,0 +1,56 @@
+﻿@model PharmaceuticalsCompany.Models.Products.ProductLiquidFilling
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Create</h2>
+
+<h4>ProductLiquidFilling</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create"  enctype="multipart/form-data" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="LFName" class="control-label"></label>
+                <input asp-for="LFName" class="form-control" />
+                <span asp-validation-for="LFName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AirPressure" class="control-label"></label>
+                <input asp-for="AirPressure" class="form-control" />
+                <span asp-validation-for="AirPressure" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Air_Volume" class="control-label"></label>
+                <input asp-for="Air_Volume" class="form-control" />
+                <span asp-validation-for="Air_Volume" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FillingSpeed" class="control-label"></label>
+                <input asp-for="FillingSpeed" class="form-control" />
+                <span asp-validation-for="FillingSpeed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FillingRange" class="control-label"></label>
+                <input asp-for="FillingRange" class="form-control" />
+                <span asp-validation-for="FillingRange" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AriPhoto" class="control-label"></label>
+                <input type="file" name="file" class="form-control" />
+                <span asp-validation-for="AriPhoto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

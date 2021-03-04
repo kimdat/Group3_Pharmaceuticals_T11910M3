@@ -50,8 +50,11 @@ namespace PharmaceuticalsCompany.Controllers
                     if (file != null && file.Length>0)
                     {
                         string filePath = Path.Combine("wwwroot/images", file.FileName);
-                        var stream = new FileStream(filePath, FileMode.Create);
-                        file.CopyToAsync(stream);
+                        if (!Directory.Exists(filePath))
+                        {
+                            var stream = new FileStream(filePath, FileMode.Create);
+                            file.CopyToAsync(stream);
+                        }
 
                         capsule.photo = "images/" + file.FileName;
 
@@ -102,11 +105,15 @@ namespace PharmaceuticalsCompany.Controllers
                         return RedirectToAction("index");
 
                     }
-                    if (file.Length > 0)
+                    if (file!=null && file.Length > 0)
                     {
                         string filePath = Path.Combine("wwwroot/images", file.FileName);
-                        var stream = new FileStream(filePath, FileMode.Create);
-                        file.CopyToAsync(stream);
+                        if(!Directory.Exists(filePath))
+                        {
+                            var stream = new FileStream(filePath, FileMode.Create);
+                            file.CopyToAsync(stream);
+                        }
+                        
 
                         capsule.photo = "images/" + file.FileName;
 
@@ -191,7 +198,7 @@ namespace PharmaceuticalsCompany.Controllers
             var list = capsules.GetProductCapsules();
             return View("~/Views/ProductCapsule/show.cshtml",list);
         }
-        [Route("/Admin/ProductCapsule/Detail/{id}")]
+        [Route("/ProductCapsule/Detail/{id}")]
         public IActionResult detail(int id)
         {
             ProductCapsule c = capsules.GetProductCapsule(id);

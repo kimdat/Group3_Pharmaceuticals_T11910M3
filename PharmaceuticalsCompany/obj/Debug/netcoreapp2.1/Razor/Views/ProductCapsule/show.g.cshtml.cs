@@ -69,7 +69,7 @@ using PharmaceuticalsCompany.Models;
             WriteLiteral("\r\n\r\n    ");
             EndContext();
             BeginContext(127, 64, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "81aafd255f984c54842998c584468b1c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "dbc29c4148864e7ab72951708fce550f", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -109,7 +109,7 @@ WriteAttributeValue("", 557, item.photo, 557, 11, false);
             WriteLiteral(">\r\n                            <div class=\"overlay\">\r\n\r\n                                ");
             EndContext();
             BeginContext(659, 77, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "78af328a4e644b8fb2f75bb94b542d95", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "06f60bc168f643eba608293e4984a4a0", async() => {
                 BeginContext(726, 6, true);
                 WriteLiteral("Detail");
                 EndContext();

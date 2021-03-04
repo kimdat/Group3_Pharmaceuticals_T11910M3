@@ -6,6 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\Migrations\00000000000000_CreateIdentitySchema.cs" />
+    <Compile Remove="Data\Migrations\00000000000000_CreateIdentitySchema.Designer.cs" />
     <Compile Remove="Data\Migrations\20210124042121_Extend_IdentityUser.cs" />
     <Compile Remove="Data\Migrations\20210124042121_Extend_IdentityUser.Designer.cs" />
     <Compile Remove="Data\Migrations\20210125051608_Extend_IdentityUser.cs" />
@@ -14,6 +16,12 @@
     <Compile Remove="Data\Migrations\20210125054947_Extend_IdentityUser.Designer.cs" />
     <Compile Remove="Data\Migrations\20210126105107_EducationDetails.cs" />
     <Compile Remove="Data\Migrations\20210126105107_EducationDetails.Designer.cs" />
+    <Compile Remove="Data\Migrations\20210304042044_Extend_IdentityUser.cs" />
+    <Compile Remove="Data\Migrations\20210304042044_Extend_IdentityUser.Designer.cs" />
+    <Compile Remove="Data\Migrations\20210304042235_EducationDetails.cs" />
+    <Compile Remove="Data\Migrations\20210304042235_EducationDetails.Designer.cs" />
+    <Compile Remove="Data\Migrations\20210304052139_Extend_IdentityUser.cs" />
+    <Compile Remove="Data\Migrations\20210304052139_Extend_IdentityUser.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,11 +40,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Data\Migrations\" />
     <Folder Include="Models\Role\" />
     <Folder Include="Views\Shared\Pager\" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Views\ProductCapsule\detail.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\ProductTablet\detail.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="wwwroot\css\KimDat\jquery - Copy.loadingModal.min.css">
       <DependentUpon>jquery.loadingModal.min.css</DependentUpon>
     </Content>

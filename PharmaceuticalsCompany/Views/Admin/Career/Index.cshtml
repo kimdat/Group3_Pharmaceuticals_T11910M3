@@ -251,6 +251,7 @@
                                 <th>Email</th>
                                 <th>Image   </th>
                                 <th>Detail</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -284,6 +285,18 @@
                                             watch Details
                                         </a>
                                     </td>
+                                    <td>
+                                        @if (!item.Status)
+                                        {
+                                            <button type="button" class="btn btn-info">Pending</button>
+
+
+                                        }
+                                        else
+                                        {
+                                            <button type="button" class="btn btn-success">Complete</button>
+                                        }
+                                    </td>
                                 </tr>
                             }
 
@@ -296,7 +309,8 @@
                                 <th>DOB</th>
                                 <th>Email</th>
                                 <th>Image   </th>
-                                <th >Detail  </th>
+                                <th>Detail  </th>
+                                <th>Status</th>
                             </tr>
 
                         </tfoot>
@@ -374,13 +388,27 @@
                                                     (has not been vertified)
                                                 </p>
                                             }
+                                            Status:
+                                            @if (!item.Status)
+                                            {
+                                                <button type="button" class="btn btn-info">Pending</button>
 
+
+                                            }
+                                            else
+                                            {
+                                                <button type="button" class="btn btn-success">Complete</button>
+                                            }
                                             <br /><br />
                                         </div>
+                                       
+                                          
+                                       
                                         <a class="btn btn-warning" href="Career/Profile/@item.Id" style="position:absolute;bottom:0;margin:auto;right:0">
                                             watch Details
 
                                         </a>
+
                                     </div>
                                 </div>
                                 <!-- /.card-body -->

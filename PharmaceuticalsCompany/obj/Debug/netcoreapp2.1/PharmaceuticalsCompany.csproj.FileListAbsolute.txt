@@ -706,3 +706,14 @@ D:\Group3Doan\Group3_Pharmaceuticals_T11910M3\PharmaceuticalsCompany\obj\Debug\n
 D:\Group3Doan\Group3_Pharmaceuticals_T11910M3\PharmaceuticalsCompany\obj\Debug\netcoreapp2.1\Razor\Views\ProductCapsule\show.g.cshtml.cs
 D:\Group3Doan\Group3_Pharmaceuticals_T11910M3\PharmaceuticalsCompany\obj\Debug\netcoreapp2.1\Razor\Views\ProductTablet\showTablest.g.cshtml.cs
 D:\Group3Doan\Group3_Pharmaceuticals_T11910M3\PharmaceuticalsCompany\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
+D:\Group3Doan\Group3_Pharmaceuticals_T11910M3\PharmaceuticalsCompany\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Chat.g.cshtml.cs
+D:\Group3Doan\Group3_Pharmaceuticals_T11910M3\PharmaceuticalsCompany\obj\Debug\netcoreapp2.1\Razor\Views\Liquid\detail.g.cshtml.cs
+D:\Group3Doan\Group3_Pharmaceuticals_T11910M3\PharmaceuticalsCompany\obj\Debug\netcoreapp2.1\Razor\Views\Liquid\showLiquid.g.cshtml.cs
+D:\Group3Doan\Group3_Pharmaceuticals_T11910M3\PharmaceuticalsCompany\obj\Debug\netcoreapp2.1\Razor\Views\Quote\create.g.cshtml.cs
+D:\Group3Doan\Group3_Pharmaceuticals_T11910M3\PharmaceuticalsCompany\obj\Debug\netcoreapp2.1\Razor\Views\Quote\ShowQuote.g.cshtml.cs
+D:\Group3Doan\Group3_Pharmaceuticals_T11910M3\PharmaceuticalsCompany\obj\Debug\netcoreapp2.1\Razor\Views\Admin\Liquid\Create.g.cshtml.cs
+D:\Group3Doan\Group3_Pharmaceuticals_T11910M3\PharmaceuticalsCompany\obj\Debug\netcoreapp2.1\Razor\Views\Admin\Liquid\Delete.g.cshtml.cs
+D:\Group3Doan\Group3_Pharmaceuticals_T11910M3\PharmaceuticalsCompany\obj\Debug\netcoreapp2.1\Razor\Views\Admin\Liquid\Index.g.cshtml.cs
+D:\Group3Doan\Group3_Pharmaceuticals_T11910M3\PharmaceuticalsCompany\obj\Debug\netcoreapp2.1\Razor\Views\Admin\Liquid\Update.g.cshtml.cs
+D:\Group3Doan\Group3_Pharmaceuticals_T11910M3\PharmaceuticalsCompany\obj\Debug\netcoreapp2.1\Razor\Views\ProductCapsule\detail.g.cshtml.cs
+D:\Group3Doan\Group3_Pharmaceuticals_T11910M3\PharmaceuticalsCompany\obj\Debug\netcoreapp2.1\Razor\Views\ProductTablet\detail.g.cshtml.cs

@@ -37,6 +37,10 @@ namespace PharmaceuticalsCompany.Controllers.Career
       
         public IActionResult SendMail(SendMail mail)
         {
+            services.StatusSendMail(mail.To.ToString());
+
+          
+           
             MimeMessage message = new MimeMessage();
             MailboxAddress from = new MailboxAddress("PharmaceuticaulCompany",
 "shoplaptopfpt@gmail.com");

@@ -1,0 +1,114 @@
+﻿@model PharmaceuticalsCompany.Models.Products.ProductCapsule
+
+@{
+    ViewData["Title"] = "detail";
+}
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-action="index" asp-controller="Home">Home/</a></li>
+        <li class="breadcrumb-item"><a asp-action="show" asp-controller="Product">Product Capsule</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Capsule/ Encapsulation</li>
+    </ol>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="~/@Url.Content(Model.photo)" alt="..." class="img-thumbnail">
+        </div>
+        <div class="col-md-7" style="border-radius:0;">
+         
+            <form>
+                <div class="jumbotron">
+                    <h4 style="margin-top:-50px; margin-left:-40px;">Product Details </h4>
+                    <dl class="dl-horizontal">
+                        <dt style="float:left;">
+                          Product Name:
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.CapName)
+                        </dd>
+                        <dt>
+                            Output:
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Ouput)
+                        </dd>
+                        <dt>
+                            Capsule Size:
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.CapSize)
+                        </dd>
+                        <dt>
+                            Machine Dimension:
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Machine_Dimension)
+                        </dd>
+                        <dt>
+                            Shipping Weight:
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Shipping)
+                        </dd>
+
+                    </dl>
+
+
+                </div>
+            </form>
+
+        </div>
+
+
+    </div>
+</div>
+
+@*<div>
+        <h4>ProductCapsule</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.CapName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CapName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Ouput)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Ouput)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.CapSize)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CapSize)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Machine_Dimension)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Machine_Dimension)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Shipping)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Shipping)
+            </dd>
+
+            <dd>
+
+                <img src="~/@Url.Content(Model.photo)" />
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.CapId">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>
+*@

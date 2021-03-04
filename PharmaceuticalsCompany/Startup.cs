@@ -18,7 +18,9 @@ using PharmaceuticalsCompany.Services.ManageCareer;
 using PharmaceuticalsCompany.Services.ManageRole;
 using PharmaceuticalsCompany.Services.Contact;
 using PharmaceuticalsCompany.Services.Product;
+using PharmaceuticalsCompany.Services.LiquidFillings;
 using PharmaceuticalsCompany.Services.Tablets;
+using PharmaceuticalsCompany.Services.Quote;
 using ReflectionIT.Mvc.Paging;
 using PharmaceuticalsCompany.Security;
 namespace PharmaceuticalsCompany
@@ -41,7 +43,8 @@ namespace PharmaceuticalsCompany
             services.AddScoped<ICapsules, CapsulesServices>();
             services.AddScoped<IContact, ContactServices>();
             services.AddScoped<ITablets, TablestSevices>();
-
+            services.AddScoped<IQuote, QuoteServices>();
+            services.AddScoped<ILiquid, LiquidImpl>();
             services.AddIdentity<ApplicationUser, IdentityRole>(options=>
             {
                 options.Tokens.EmailConfirmationTokenProvider = "CustomEmailConfirmation";

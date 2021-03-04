@@ -4,38 +4,105 @@
     ViewData["Title"] = "create";
 }
 
-<h2>create</h2>
-
-<h4>ContactUs</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="create" method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="CName" class="control-label"></label>
-                <input asp-for="CName" class="form-control" />
-                <span asp-validation-for="CName" class="text-danger"></span>
+<section class="wt-section bg-gray text-center inner-page-header">
+    <div class="container">
+        <div class="row justify-content-md-center align-items-center text-white py-4 py-lg-5">
+            <div class="col-md-7">
+                <div class="text-center">
+                    <h1 class="display-sm-4 display-lg-3">Contact Us</h1>
+                    <p class="sub-text">Aspernatur at enim excepturi facere in reiciendis</p>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="CPhone" class="control-label"></label>
-                <input asp-for="CPhone" class="form-control" />
-                <span asp-validation-for="CPhone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FeedBack" class="control-label"></label>
-                <input asp-for="FeedBack" class="form-control" />
-                <span asp-validation-for="FeedBack" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </form>
+        </div>
     </div>
-</div>
-@ViewBag.msg
+</section>
+<main role="main">
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    <!-- Icon Block -->
+    <section class="wt-section bg-light">
+        <div class="container">
+            <div class="row justify-content-center align-items-center text-center pb-lg-5">
+                <div class="col-md-8">
+                    <p class="text-muted">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus alias aliquid delectus, dolor
+                        doloremque enim eos est fugit inventore ipsam iure laudantium molestiae.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0 text-center">
+                    <div class="contactIcons text-primary mb-2">
+                        <i class="fa fa-location-arrow"></i>
+                    </div>
+                    <h3 class="h5">Address</h3>
+                    <p class="mb-0">132 Manhatten Str., NewYork, US</p>
+                </div>
+
+                <div class="col-lg-4 mb-5 mb-lg-0 text-center">
+                    <div class="contactIcons text-primary mb-2">
+                        <i class="fa fa-phone"></i>
+                    </div>
+                    <h3 class="h5">Phone Number</h3>
+                    <p class="mb-0">1-234-567-2401</p>
+                </div>
+
+                <div class="col-lg-4 mb-5 mb-lg-0 text-center">
+                    <div class="contactIcons text-primary mb-2">
+                        <i class="fa fa fa-envelope"></i>
+                    </div>
+                    <h3 class="h5">Email</h3>
+                    <p class="mb-0">mail@webthemez.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Icon Block -->
+    <!-- Contact Form -->
+    <section class="wt-section">
+        <div class="container">
+            <div class="row justify-content-center align-items-center text-center mb-lg-4 mb-4">
+                <div class="col-md-6 mb-lg-5 mb-4">
+                    <h2 class="mb-4">Let us know</h2>
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur at enim excepturi facere in non reiciendis.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <form class="text-center" action="#">
+                        <div class="row text-center">
+                            <div class="col-md-5">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11880.492291371422!2d12.4922309!3d41.8902102!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x28f1c82e908503c4!2sColosseo!5e0!3m2!1sit!2sit!4v1524815927977" width="400" height="320" frameborder="0" style="border:0" allowfullscreen></iframe>
+                            </div>
+
+                        </div>
+
+                    </form>
+                </div>
+                <div class="col-md-7">
+                    <form asp-action="create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="CName" class="control-label"></label>
+                            <input asp-for="CName" class="form-control" />
+                            <span asp-validation-for="CName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="CPhone" class="control-label"></label>
+                            <input asp-for="CPhone" class="form-control" />
+                            <span asp-validation-for="CPhone" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="FeedBack" class="control-label"></label>
+                            <input asp-for="FeedBack" class="form-control" />
+                            <span asp-validation-for="FeedBack" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Create" class="btn btn-default" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Contact Form -->
 

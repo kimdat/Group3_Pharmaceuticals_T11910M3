@@ -1,0 +1,67 @@
+﻿@model IEnumerable<PharmaceuticalsCompany.Models.Products.ProductLiquidFilling>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="create" asp-controller="Liquid">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LFName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AirPressure)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Air_Volume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FillingSpeed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FillingRange)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AriPhoto)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LFName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AirPressure)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Air_Volume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FillingSpeed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FillingRange)
+            </td>
+            <td>
+                <img width="150" src="~/@Url.Content(item.AriPhoto)" />
+      
+            </td>
+            <td>
+                <a asp-action="Update" asp-route-id="@item.LFId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.LFId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.LFId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

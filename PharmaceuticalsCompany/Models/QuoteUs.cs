@@ -9,21 +9,27 @@ namespace PharmaceuticalsCompany.Models
 {
     public class QuoteUs
     {
-     
-       
-            [Key]
-         
-            public int Id { get; set; }
-            public string FullName { get; set; }
-            public string CompanyName { get; set; }
-            public string Address { get; set; }
-            public string City { get; set; }
-            public string State { get; set; }
-            public int PostalCode { get; set; }
-            public string Country { get; set; }
-            public int Phone { get; set; }
-            public string Comments { get; set; }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+        [Required]
+        public string FullName { get; set; }
+        [Required]
+        public string CompanyName { get; set; }
+        [Required]
+        public string Address { get; set; }
+        [Required]
+        public string City { get; set; }
+        [Required]
+        public string State { get; set; }
+        [Required]
+        public int PostalCode { get; set; }
+        [Required]
+        public string Country { get; set; }
+        [Required]
+        public int Phone { get; set; }
+        [Required]
+        public string Comments { get; set; }
 
-        
     }
 }

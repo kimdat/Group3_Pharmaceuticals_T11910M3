@@ -16,8 +16,9 @@ namespace PharmaceuticalsCompany.Models.Career
         public DateTime DateOfBirth { get; set; }
         public string Resume { get; set; }
         public string Photo { get; set; }
-      
+        
         public  string FullName { get; set; }
+        public bool Status { get; set; }
         public ICollection<EducationDetails>educationDetails { get; set; }
         
 

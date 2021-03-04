@@ -1,0 +1,162 @@
+﻿@model PharmaceuticalsCompany.Models.Products.ProductTablet
+
+@{
+    ViewData["Title"] = "detail";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-action="index" asp-controller="Home">Home/</a></li>
+        <li class="breadcrumb-item"><a asp-action="show" asp-controller="Product">Product Capsule</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Capsule/ Encapsulation</li>
+    </ol>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="~/@Url.Content(Model.TabPhoto)" alt="..." class="img-thumbnail">
+        </div>
+        <div class="col-md-7" style="border-radius:0;">
+
+            <form>
+                <div class="jumbotron">
+                    <h4 style="margin-top:-50px; margin-left:-40px;">Product Details </h4>
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.TabName)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.TabName)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Model_Number)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Model_Number)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Dies)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Dies)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.MaxPressure)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.MaxPressure)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.MaxDiameter)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.MaxDiameter)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.MaxDept)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.MaxDept)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.ProductCapacity)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.ProductCapacity)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.MachineSize)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.MachineSize)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.NetWeight)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.NetWeight)
+                        </dd>
+                      
+                    </dl>
+
+
+                </div>
+            </form>
+
+        </div>
+
+
+    </div>
+</div>
+@*<h2>detail</h2>
+
+    <div>
+        <h4>ProductTablet</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.TabName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TabName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Model_Number)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Model_Number)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Dies)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Dies)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.MaxPressure)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.MaxPressure)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.MaxDiameter)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.MaxDiameter)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.MaxDept)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.MaxDept)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ProductCapacity)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ProductCapacity)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.MachineSize)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.MachineSize)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.NetWeight)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.NetWeight)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.TabPhoto)
+            </dt>
+            <dd>
+                <img src="~/@Url.Content(Model.TabPhoto)" alt="..." class="img-thumbnail">
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.TabId">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>*@

@@ -77,16 +77,20 @@ namespace PharmaceuticalsCompany.Services.ManageCareer
             return context.EducationDetails.Where(e => e.User_id == id).ToList();
         }
 
-        /*
-public async Task<CareerModel> GetUser(string id)
-{
+        public async Task<ApplicationUser> StatusSendMail(string mail)
+        {
+            var  user = await _um.FindByEmailAsync(mail);
+            if (user != null && user.Status==false)
+            {
+                user.Status = true;
+                context.SaveChanges();
+            }
 
-   ApplicationUser user = _um.FindByIdAsync(id).Result;
-   if (user != null)
-       return  user;
+                return user;
 
-   else
-       return null;
-}*/
+           
+        }
+
+       
     }
 }

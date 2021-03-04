@@ -45,8 +45,12 @@ namespace PharmaceuticalsCompany.Controllers
                      if (file!= null && file.Length>0)
                     {
                         string filePath = Path.Combine("wwwroot/images", file.FileName);
-                        var stream = new FileStream(filePath, FileMode.Create);
-                        file.CopyToAsync(stream);
+                        if (!Directory.Exists(filePath))
+                        {
+                            var stream = new FileStream(filePath, FileMode.Create);
+                            file.CopyToAsync(stream);
+
+                        }
 
                         tablet.TabPhoto = "images/" + file.FileName;
 
@@ -99,8 +103,13 @@ namespace PharmaceuticalsCompany.Controllers
                     if (file != null && file.Length>0)
                     {
                         string filePath = Path.Combine("wwwroot/images", file.FileName);
-                        var stream = new FileStream(filePath, FileMode.Create);
-                        file.CopyToAsync(stream);
+                        if (!Directory.Exists(filePath))
+                        {
+                            var stream = new FileStream(filePath, FileMode.Create);
+                            file.CopyToAsync(stream);
+
+                        }
+
 
                         tablet.TabPhoto = "images/" + file.FileName;
 
@@ -152,7 +161,7 @@ namespace PharmaceuticalsCompany.Controllers
             var list = tablets.GetProductTablest();
             return View("~/Views/ProductTablet/showTablest.cshtml",  list);
         }
-        [Route("/Admin/ProductTablet/Detail/{id}")]
+        [Route("/ProductTablet/Detail/{id}")]
         public IActionResult detail(int id, IFormFile file)
         {
             ProductTablet c = tablets.GetProductTablets(id);

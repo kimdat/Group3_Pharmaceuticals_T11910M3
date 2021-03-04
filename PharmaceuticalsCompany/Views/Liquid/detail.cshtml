@@ -1,0 +1,116 @@
+﻿@model PharmaceuticalsCompany.Models.Products.ProductLiquidFilling
+
+@{
+    ViewData["Title"] = "detail";
+}
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-action="index" asp-controller="Home">Home</a></li>
+        <li class="breadcrumb-item"><a asp-action="showLiquid" asp-controller="Liquid">Product LiquidFilling</a></li>
+        <li class="breadcrumb-item active" aria-current="page">  @Html.DisplayFor(model => model.LFName)</li>
+    </ol>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="~/@Url.Content(Model.AriPhoto)" alt="..." class="img-thumbnail">
+        </div>
+        <div class="col-md-7" style="border-radius:0;">
+
+            <form>
+                <div class="jumbotron">
+                    <h4 style="margin-top:-50px; margin-left:-40px;">Product Details </h4>
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.LFName)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.LFName)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.AirPressure)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.AirPressure)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Air_Volume)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Air_Volume)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.FillingSpeed)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.FillingSpeed)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.FillingRange)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.FillingRange)
+                        </dd>
+                     
+                    </dl>
+                </div>
+            </form>
+
+        </div>
+
+
+    </div>
+</div>
+
+@*
+    <h2>detail</h2>
+
+    <div>
+        <h4>ProductLiquidFilling</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.LFName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.LFName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.AirPressure)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.AirPressure)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Air_Volume)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Air_Volume)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.FillingSpeed)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.FillingSpeed)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.FillingRange)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.FillingRange)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.AriPhoto)
+            </dt>
+            <dd>
+                <img src="~/@Url.Content(Model.AriPhoto)" alt="..." class="img-thumbnail">
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.LFId">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>
+*@
