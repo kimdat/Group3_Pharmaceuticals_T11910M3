@@ -114,9 +114,12 @@ namespace PharmaceuticalsCompany.Controllers
 
 
         }
-       
-       
-      
+        [Route("About")]
+        public IActionResult About()
+        {
+            return View();
+        }
+
 
         public IActionResult Privacy()
         {
