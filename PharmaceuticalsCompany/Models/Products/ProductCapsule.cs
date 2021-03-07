@@ -22,5 +22,6 @@ namespace PharmaceuticalsCompany.Models.Products
         public float Shipping { get; set; }
 
         public string photo { get; set; }
+     
     }
 }
